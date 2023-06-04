@@ -1,12 +1,13 @@
 import random
+import sqlite3
 
 class Wine:
     def __init__(self, scope, style, label_color, grapes, country, region,        ## label attributes
     appellation, vintage,
-    clarity, appearance_color, appearance_other,                  ## appearance
+    clarity, appearance_red, appearance_green, appearance_blue, appearance_other,                  ## appearance
     condition, nose_intensity, development,                                 ## nose
     petillance, sweetness, acidity, alcohol,                                ## structure
-    body, tannin_or_bitterness, length,
+    body, tannin_or_bitterness, finish,
     fruit_color, fruit_family,                                              ## palate
     fruit_condition, fruit_subcondition, floral, herbaceous, herbal,
     earth_organic, earth_inorganic, grape_spice, oak, aroma_other):
@@ -38,9 +39,10 @@ class Wine:
         ##  clear, hazy
         self.clarity = clarity
 
-        ##  RGB?
         ##  display = graphic
-        self.appearance_color = appearance_color
+        self.appearance_red = appearance_red
+        self.appearance_green = appearance_green
+        self.appearance_blue = appearance_blue
 
         ##  gas, sediment
         ##  display = text
@@ -63,11 +65,11 @@ class Wine:
         ##  only display if > none?
         self.petillance = petillance
 
-        ##  0-255
+        ##  0-255; 0-4 = dry, 4-11 medium-dry, 12-44 medium-sweet, 45-114 sweet, 115-255 very sweet
         ##  display = radar chart
         self.sweetness = sweetness
 
-        ##  0-255
+        ##  0-255; 0-50 = low, 51-101 = med-, 102-152 = med, 153-203 = med+, 204-255 = high
         ##  display = radar chart
         self.acidity = acidity
 
@@ -85,7 +87,7 @@ class Wine:
 
         ##  0-255; 0-50 = short, 51-101 = med-, 102-152 = med, 153-203 = med+, 204-255 = long
         ##  display = bar chart
-        self.length = length
+        self.finish = finish
 
         ##  0-255; 0-27 = very-green, 28-55 = green, 56-83 = yellow, 84-111 = orange,
         ##  112-139 = red, 140-167 = dark-red, 168-195 = purple, 196-223 = black, 224-255 = blue
@@ -150,22 +152,22 @@ class TastingNote:
         self.description = description
         self.image = image
 
-catalogue = []
+catalog = []
 
-def filter_by_scope(catalogue, scope):
-    return (wine for wine in catalogue if wine.scope <= scope)
+def filter_by_scope(catalog, scope):
+    return (wine for wine in catalog if wine.scope <= scope)
 
-def generate_note(catalogue):
-    wine = random.choice(catalogue)
+def generate_note(catalog):
+    wine = random.choice(catalog)
     note = generate_tasting_note(wine)
     return wine, note
 
 def main():
     scope = input("Choose scope from 0 (narrow) to 3 (very wide)")
 
-    filtered_catalogue = filter_by_scope(catalogue, scope)
+    filtered_catalog = filter_by_scope(catalog, scope)
 
-    wine, note = generate_note(filtered_catalogue)
+    wine, note = generate_note(filtered_catalog)
 
     print(note.description)
     user_guess = input("What's the wine?")    

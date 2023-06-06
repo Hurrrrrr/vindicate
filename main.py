@@ -2,7 +2,7 @@ import random
 import sqlite3
 
 class Wine:
-    def __init__(self, scope, style, label_color, grapes, country, region,        ## label attributes
+    def __init__(self, scope, style, label_color, country, region,        ## label attributes
     appellation, vintage,
     clarity, appearance_red, appearance_green, appearance_blue, appearance_other,                  ## appearance
     condition, nose_intensity, development,                                 ## nose
@@ -22,7 +22,7 @@ class Wine:
         self.label_color = label_color
 
         ##  list
-        self.grapes = grapes
+        # self.grapes = grapes
 
         ##  string
         self.country = country
@@ -65,7 +65,7 @@ class Wine:
         ##  only display if > none?
         self.petillance = petillance
 
-        ##  0-255; 0-4 = dry, 4-11 medium-dry, 12-44 medium-sweet, 45-114 sweet, 115-255 very sweet
+        ##  0-255; 0-4 = dry, 5-11 medium-dry, 12-44 medium-sweet, 45-114 sweet, 115-255 very sweet
         ##  display = radar chart
         self.sweetness = sweetness
 
@@ -105,7 +105,7 @@ class Wine:
         ##  display = text
         self.fruit_condition = fruit_condition
 
-        ##  0-255; 0-101 = candied, 102-153 = dried, 154-205 = cooked, 206-255 = baked
+        ##  0-255; 0 = none, 1-101 = candied, 102-153 = dried, 154-205 = cooked, 206-255 = baked
         ##  display = text
         self.fruit_subcondition = fruit_subcondition
 
@@ -120,7 +120,7 @@ class Wine:
         ##  display = text
         self.herbaceous = herbaceous
 
-        ##  0-255; 0-63: faint fresh herbs, fresh resinous herbs, 128-191 = dried resinous herbs,
+        ##  0-255; 0-63: faint fresh herbs, 64-127 = fresh resinous herbs, 128-191 = dried resinous herbs,
         ##  192-255 = medicinal herbs
         ##  display = text
         self.herbal = herbal
@@ -170,5 +170,21 @@ def main():
     wine, note = generate_note(filtered_catalog)
 
     print(note.description)
-    user_guess = input("What's the wine?")    
+    user_guess = input("What's the wine?")  
+
+try:
+    with open("catalog.sql", "r") as sql_file:
+        sql_script = sql_file.read()
+
+    conn = sqlite3.connect("catalog.db")
+    c = conn.cursor()
+    c.executescript(sql_script)
+    c.execute('SELECT * FROM wines')
+    test = c.fetchall()
+
+    for row in test:
+        print(row)
+
+finally:
+    conn.close()
 

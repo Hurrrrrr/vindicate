@@ -105,41 +105,41 @@ class Wine:
         ##  display = text
         self.fruit_condition = fruit_condition
 
-        ##  0-255; 0 = none, 1-101 = candied, 102-153 = dried, 154-205 = cooked, 206-255 = baked
+        ##  0-255; 0-99 = none, 100-138 = candied, 139-177 = dried, 178-216 = cooked, 217-255 = baked
         ##  display = text
         self.fruit_subcondition = fruit_subcondition
 
-        ##  0-255; white: 0-35 = faint white flowers, 36-70 = honeysuckle, 71-106 = jasmine,
-        ##  107-142 = rose, 143-179 = geranium, 180-215 = perfume, 216-255 = soap
-        ##  red: 0-41 = faint purple flowers, 42-83 = violets, 84-127 = rose, 128-169 = lilac,
-        ##  170-211 = perfume, 212-255 = soap
+        ##  0-255; white: 0-69 = none, 70-97 = faint white flowers, 98-125 = honeysuckle, 126-153 = jasmine,
+        ##  154-181 = rose, 182-209 = geranium, 210-237 = perfume, 238-255 = soap
+        ##  red: 0-69 = none, 70-100 faint purple flowers, 101-131 = violets, 132-162 = rose, 163-193 = lilac,
+        ##  194-224 = perfume, 225-255 = soap
         ##  display = text
         self.floral = floral
 
-        ##  0-255; 0-63: faint green leaf, 64-127 = asparagus, 128-191 = grass, 192-255 = green bell pepper
+        ##  0-255; 0-79 0 none, 80-123 = faint greenness, 124-167 = asparagus, 168-211 = grass, 212-255 = green bell pepper
         ##  display = text
         self.herbaceous = herbaceous
 
-        ##  0-255; 0-63: faint fresh herbs, 64-127 = fresh resinous herbs, 128-191 = dried resinous herbs,
-        ##  192-255 = medicinal herbs
+        ##  0-255; 0-119 = none, 120-164 = faint dried herbs, 165-209 = resinous herbs, 210-255 = medicinal herbs
+        ##  
         ##  display = text
         self.herbal = herbal
 
-        ##  0-255; 0-63: white mushroom, 64-127 = potting soil, 128-191 = forest floor, 192-255 = compost
+        ##  0-255; 0-89 = none, 90-131 = white mushroom, 132-173 = potting soil, 174-215 = forest floor, 216-255 = compost
         ##  display = text
         self.earth_organic = earth_organic
 
-        ##  0-255; 0-41 = wet stone, 42-83 = wet pavement, 84-127 = slate, 128-169 = chalk,
-        ##  170-211 = flint, 212-255 = scraped steel
+        ##  0-255; 0-89 = none, 90-117 = wet stone, 118-145 = wet pavement, 146-173 = slate, 174-201 = chalk,
+        ##  202-229 = flint, 230-255 = scraped steel
         ##  display = text
         self.earth_inorganic = earth_inorganic
 
-        ##  0-255; 0-63: fennel, 64-127 = black licorice, 128-191 = black pepper, 192-255 = white pepper
+        ##  0-255; 0-139 = none, 140-168: fennel, 169-197 = black licorice, 198-225 = black pepper, 226-255 = white pepper
         ##  display = text
         self.grape_spice = grape_spice
 
-        ##  0-35 = sawdust, 36-70 = cedar, 71-106 = vanilla,
-        ##  107-142 = caramel, 143-179 = chocolate, 180-215 = burnt marshmallow, 216-255 = coffee
+        ##  0-79 = none, 80-104 = sawdust, 105-129 = cedar, 130-154 = vanilla,
+        ##  155-179 = caramel, 180-204 = chocolate, 205-229 = burnt marshmallow, 230-255 = coffee
         ##  display = text
         self.oak = oak
 
@@ -151,8 +151,6 @@ class TastingNote:
     def __init__(self, description, image):
         self.description = description
         self.image = image
-
-catalog = []
 
 def filter_by_scope(catalog, scope):
     return (wine for wine in catalog if wine.scope <= scope)
@@ -172,17 +170,21 @@ def main():
     print(note.description)
     user_guess = input("What's the wine?")  
 
+output = []
+
 try:
     with open("catalog.sql", "r") as sql_file:
         sql_script = sql_file.read()
 
     conn = sqlite3.connect("catalog.db")
+    conn.row_factory = sqlite3.Row      # necessary to set this so row_factory will work
     c = conn.cursor()
     c.execute('SELECT * FROM wines')
-    test = c.fetchall()
+    rows = c.fetchall()
 
-    for row in test:
-        print(row)
+    for row in rows:
+        row_dict = dict(row)
+        print(row_dict)
 
 finally:
     conn.close()

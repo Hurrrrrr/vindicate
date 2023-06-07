@@ -1,4 +1,4 @@
-CREATE TABLE wines (
+CREATE TABLE IF NOT EXISTS wines (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     scope INTEGER,
     style TEXT,
@@ -36,18 +36,24 @@ CREATE TABLE wines (
     aroma_other TEXT
 );
 
-CREATE TABLE grapes (
+CREATE TABLE IF NOT EXISTS grapes (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT
 );
 
-CREATE TABLE wine_grapes (
+CREATE TABLE IF NOT EXISTS wine_grapes (
     wine_id INTEGER,
     grape_id INTEGER,
     FOREIGN KEY(wine_id) REFERENCES wines(id),
     FOREIGN KEY(grape_id) REFERENCES grapes(id),
     PRIMARY KEY(wine_id, grape_id)
 );
+
+INSERT INTO grapes (name)
+VALUES
+    ("Chardonnay"),
+    ("Pinot Gris"),
+    ("Pinot Noir");
 
 INSERT INTO wines (
     scope,
@@ -155,3 +161,8 @@ VALUES (
     50,
     'None'
 );
+
+INSERT INTO wine_grapes (wine_id, grape_id)
+VALUES  (1, 1),
+        (1, 2),
+        (2, 3);

@@ -178,7 +178,6 @@ try:
 
     conn = sqlite3.connect("catalog.db")
     c = conn.cursor()
-    c.executescript(sql_script)
     c.execute('SELECT * FROM wines')
     test = c.fetchall()
 

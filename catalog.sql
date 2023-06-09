@@ -8,6 +8,8 @@ CREATE TABLE IF NOT EXISTS wines (
     appellation TEXT,
     grapes TEXT,
     vintage INTEGER,
+    producer TEXT,
+    bottling TEXT,
     clarity TEXT,
     appearance_red INTEGER,
     appearance_green INTEGER,
@@ -46,6 +48,8 @@ INSERT INTO wines (
     appellation,
     grapes,
     vintage,
+    producer,
+    bottling,
     clarity,
     appearance_red,
     appearance_green,
@@ -74,41 +78,43 @@ INSERT INTO wines (
     oak,
     aroma_other)
 VALUES (
-    0,
-    'Table',
-    'White',
-    'USA',
-    'California',
-    'Napa Valley',
-    'Chardonnay,Pinot Gris',
-    2018,
-    'Clear',
-    255,
-    213,
-    0,
-    'Sediment',
-    'Sound',
-    175,
-    75,
-    0,
-    5,
-    110,
-    143,
-    210,
-    20,
-    195,
-    75,
-    190,
-    150,
-    0,
-    30,
-    0,
-    0,
-    30,
-    30,
-    0,
-    125,
-    'Smoke'
+    0,                              -- scope
+    'Table',                        -- style
+    'White',                        -- color
+    'USA',                          -- country
+    'California',                   -- region
+    'Napa Valley',                  -- appellation
+    'Chardonnay,Pinot Gris',        -- grapes
+    2018,                           -- vintage
+    'Test Producer',                -- producer
+    'Test Bottling',                -- bottling
+    'Clear',                        -- clarity
+    255,                            -- appearance_red
+    213,                            -- appearance_green
+    0,                              -- appearance_blue
+    'Sediment',                     -- appearance_other
+    'Sound',                        -- condition
+    175,                            -- nose_intensity
+    75,                             -- development
+    0,                              -- petillance
+    5,                              -- sweetness
+    110,                            -- acidity
+    143,                            -- alcohol
+    210,                            -- body
+    30,                             -- tannin_or_bitterness
+    195,                            -- finish
+    75,                             -- fruit_color
+    190,                            -- fruit_family
+    150,                            -- fruit_condition
+    180,                            -- fruit_subcondition
+    80,                             -- floral
+    90,                             -- herbaceous
+    130,                            -- herbal
+    100,                            -- earth_organic
+    100,                            -- earth_inorganic
+    150,                            -- grape_spice
+    125,                            -- oak
+    'Smoke'                         -- aroma_other
 ), (
     0,
     'Table',
@@ -118,6 +124,8 @@ VALUES (
     'Musigny',
     'Pinot Noir',
     2017,
+    'Test Producer 2',
+    'Test Bottling 2',
     'Clear',
     128,
     0,

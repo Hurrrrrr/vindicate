@@ -57,17 +57,24 @@ class TastingNote:
         elif self.wine.check_for_earth_inorganic():
             output.append(f"It has a {self.wine.get_earth_inorganic()} minerality.\n")
         
-        if self.wine.check_quantity_aroma_other() > 0:
+        misc_list = self.wine.generate_misc_list()
+        misc_length = len(misc_list)
+
+        if misc_length > 0:
             output.append(f"Finally, there are notes of ")
-        
-        # merge all other notes into list and iterate over them?
-        # where should this function be?
-        for i in range len(self.wine.check_quantity_aroma_other()):
-            
-            {self.wine.get_oak()}, "
-            f"{self.wine.get_grape_spice()}, {self.wine.get_herbal()}, "
-            f"and {self.wine.get_aroma_other()}.\n"
-        )
+            if misc_length == 1:
+                output.append(f"{misc_list[0]}.\n")
+            elif misc_length == 2:
+                output.append(f"{misc_list[0]} and {misc_list[1]}.")
+            else:
+                for i in range(misc_length):
+                    output.append(f"{misc_list[i]}")
+                    if i == misc_length - 2:
+                        output.append(f" and ")
+                    elif i == misc_length - 1:
+                        output.append(".")
+                    else:
+                        output.append(", ")
 
         output_string = ''.join(output)
         return output_string

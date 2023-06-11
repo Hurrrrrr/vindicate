@@ -583,4 +583,27 @@ class Wine:
             return 0
         else:
             return len(self.aroma_other.split(','))
+    
+    def generate_aroma_other_list(self):
+        output_list = self.aroma_other.split(',')
+        return output_list
+    
+    # oak, grape_spice, herbal, and 0-9 aroma_other used in
+    # final text output section
+    def generate_misc_list(self):
+        output_list = []
+
+        if self.check_for_oak():
+            output_list.append(self.get_oak())
+        if self.check_for_grape_spice():
+            output_list.append(self.get_grape_spice())
+        if self.check_for_herbal():
+            output_list.append(self.get_herbal())
+        if self.check_quantity_aroma_other():
+            for item in self.generate_aroma_other_list():
+                output_list.append(item)
+        
+        return output_list
+
+        
 

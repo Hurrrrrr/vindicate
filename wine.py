@@ -29,7 +29,7 @@ class Wine:
         ##  string
         self.appellation = appellation
 
-        ##  list
+        ##  comma separated string
         self.grapes = grapes
 
         ##  int
@@ -148,9 +148,11 @@ class Wine:
         ##  display = text
         self.oak = oak
 
-        ##  string
+        ##  comma separated string
         ##  display = text
         self.aroma_other = aroma_other
+
+    # getters
 
     def __repr__(self):
         class_name = type(self).__name__
@@ -162,10 +164,10 @@ class Wine:
     def get_clarity(self):
         return self.clarity
     
-    # finish this once this has a graphical display
+    # finish appearance once this program has a graphical display
     def get_appearance(self):
         return f"{self.appearance_red},{self.appearance_green},{self.appearance_blue}"
-    
+
     def get_appearance_other(self):
         return self.appearance_other
     
@@ -312,7 +314,7 @@ class Wine:
             elif self.fruit_family >= 196:
                 return "Sweet Tropical"
             elif self.fruit_family >= 168:
-                return "Sweet stone"
+                return "Sweet Stone"
             elif self.fruit_family >= 140:
                 return "Sweet Pome"
             elif self.fruit_family >= 112:
@@ -501,3 +503,84 @@ class Wine:
     
     def get_aroma_other(self):
         return self.aroma_other
+    
+
+
+    # checkers; used to check for attributes which can be "None"
+    #   and thus affect the formatting of the output
+    def check_for_bitterness(self):
+        if self.get_tannin_or_bitterness() != "None":
+            return True
+        else:
+            return False
+
+    def check_for_fruit_subcondition(self):
+        if self.get_fruit_subcondition() != "None":
+            return True
+        else:
+            return False
+    
+    def check_for_floral(self):
+        if self.get_floral() != "None":
+            return True
+        else:
+            return False
+
+    def check_for_herbaceous(self):
+        if self.get_herbaceous() != "None":
+            return True
+        else:
+            return False
+
+    def check_for_herbal(self):
+        if self.get_herbal() != "None":
+            return True
+        else:
+            return False
+
+    def check_for_earth_organic(self):
+        if self.get_earth_organic() != "None":
+            return True
+        else:
+            return False
+
+    def check_for_earth_inorganic(self):
+        if self.get_earth_inorganic() != "None":
+            return True
+        else:
+            return False
+
+    def check_for_grape_spice(self):
+        if self.get_grape_spice() != "None":
+            return True
+        else:
+            return False
+
+    def check_for_oak(self):
+        if self.get_oak() != "None":
+            return True
+        else:
+            return False
+    
+    # these characteristics are all output together for user, so check how many
+    # need to be displayed to determine formatting
+    def check_quantity_others(self):
+        count = 0
+
+        if self.wine.check_for_oak():
+            count += 1
+        if self.wine.check_for_grape_spice():
+            count += 1
+        if self.wine.check_for_herbal():
+            count += 1
+        count += self.check_quantity_aroma_other()
+
+        return count
+        
+
+    def check_quantity_aroma_other(self):
+        if self.aroma_other == "None":
+            return 0
+        else:
+            return len(self.aroma_other.split(','))
+

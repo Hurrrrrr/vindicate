@@ -75,6 +75,8 @@ class TastingNote:
                         output.append(".")
                     else:
                         output.append(", ")
+        
+        output.append('\n')
 
         output_string = ''.join(output)
         return output_string

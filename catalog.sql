@@ -78,7 +78,7 @@ INSERT INTO wines (
     oak,
     aroma_other)
 VALUES (
-    0,                              -- scope
+    1,                              -- scope
     'Table',                        -- style
     'White',                        -- color
     'USA',                          -- country
@@ -116,7 +116,7 @@ VALUES (
     125,                            -- oak
     'Smoke'                         -- aroma_other
 ), (
-    0,
+    1,
     'Table',
     'Red',
     'France',

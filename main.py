@@ -42,61 +42,6 @@ def get_user_answers(wine):
     user_answers = Answers(country, region, appellation, grape, vintage)
 
     return user_answers
-
-def check_user_answers(wine, answers_obj):
-
-    if check_country(answers_obj.country, wine):
-        answers_obj.country_result = True
-    
-    if check_region(answers_obj.region, wine):
-        answers_obj.region_result = True
-    
-    if check_appellation(answers_obj.appellation, wine):
-        answers_obj.appellation_result = True
-    
-    if check_grape(answers_obj.grape, wine):
-        answers_obj.grape_result = True
-    
-    if check_vintage(answers_obj.vintage, wine):
-        answers_obj.vintage_result = True
-    
-    print(answers_obj.country_result)
-    print(answers_obj.region_result)
-    print(answers_obj.appellation_result)
-    print(answers_obj.grape_result)
-    print(answers_obj.vintage_result)
-    
-    
-
-def check_country(user_answer, wine):
-    if user_answer.lower() == wine.country.lower():
-        return True
-    else:
-        return False
-
-def check_region(user_answer, wine):
-    if user_answer.lower() == wine.region.lower():
-        return True
-    else:
-        return False
-
-def check_appellation(user_answer, wine):
-    if user_answer.lower() == wine.appellation.lower():
-        return True
-    else:
-        return False
-
-def check_grape(user_answer, wine):
-    if user_answer.lower() == wine.grapes.lower():
-        return True
-    else:
-        return False
-
-def check_vintage(user_answer, wine):
-    if user_answer == wine.vintage:
-        return True
-    else:
-        return False
     
 def main():
     scope = get_scope_from_user()
@@ -123,7 +68,7 @@ def main():
         conn.close()
 
     user_answers = get_user_answers(mystery_wine)
-    check_user_answers(mystery_wine, user_answers)
+    user_answers.check_user_answers(mystery_wine)
 
 if __name__ == "__main__":
     main()

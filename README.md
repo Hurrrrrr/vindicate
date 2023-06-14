@@ -9,8 +9,9 @@ how to use Python to build a webapp.
 Technologies/skills which are new to me for this project:
     using and manipulating SQL in Python
     using GPT4 for coding assistance
-    porting a project from Python to WebApp
+    porting a project from Python to webapp
+    software architecture design
 
-GPT4 was used primarily for input on the architectural design of this app, as well as
+GPT4 was used primarily for input on the architecture of this app, as well as
 writing some repetitive code such as the getters in the Wine class. The vast majority
 of code was written by hand.

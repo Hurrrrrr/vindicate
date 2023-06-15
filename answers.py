@@ -1,79 +1,101 @@
 class Answers:
 
-    def __init__(self, country, region, appellation, grape, vintage):
+    def __init__(self, grape, country, region, appellation, vintage):
+        self.grape = grape
         self.country = country
         self.region = region
         self.appellation = appellation
-        self.grape = grape
         self.vintage = vintage
         
+        self.grape_result = False
         self.country_result = False
         self.region_result = False
         self.appellation_result = False
-        self.grape_result = False
         self.vintage_result = False
     
-    # rewrite these to not require self.country as parameter
     def check_user_answers(self, wine_obj):
-        if self.check_country(self.country, wine_obj):
+        if self.check_grape(wine_obj):
+            self.grape_result = True
+
+        if self.check_country(wine_obj):
             self.country_result = True
         
-        if self.check_region(self.region, wine_obj):
+        if self.check_region(wine_obj):
             self.region_result = True
         
-        if self.check_appellation(self.appellation, wine_obj):
+        if self.check_appellation(wine_obj):
             self.appellation_result = True
         
-        if self.check_grape(self.grape, wine_obj):
-            self.grape_result = True
-        
-        if self.check_vintage(self.vintage, wine_obj):
+        if self.check_vintage(wine_obj):
             self.vintage_result = True
+
+    # this needs to be fixed to work with multiple grapes
+    # write function to pull the first grape?
+    def check_grape(self, wine):
+        if self.grape.lower() == wine.get_primary_grape().lower():
+            return True
+        else:
+            return False
+
+    def check_country(self, wine):
+        if self.country.lower() == wine.country.lower():
+            return True
+        else:
+            return False
+
+    def check_region(self, wine):
+        if self.region.lower() == wine.region.lower():
+            return True
+        else:
+            return False
+
+    def check_appellation(self, wine):
+        if self.appellation.lower() == wine.appellation.lower():
+            return True
+        else:
+            return False
+
+    def check_vintage(self, wine):
+        if str(self.vintage) == str(wine.vintage):
+            return True
+        else:
+            return False
         
-        # move this to its own function
-        print(self.country_result)
-        print(self.region_result)
-        print(self.appellation_result)
-        print(self.grape_result)
-        print(self.vintage_result)
-    
-    def get_results(self, wine_obj):
+    def get_results_list(self):
         results_list = []
+        results_list.append(self.grape_result)
         results_list.append(self.country_result)
         results_list.append(self.region_result)
         results_list.append(self.appellation_result)
-        results_list.append(self.grape_result)
         results_list.append(self.vintage_result)
         return results_list
+    
+    def get_formatted_results(self, wine_obj):
+        formatted_output = []
 
+        formatted_output.append(f"The primary grape is {wine_obj.get_primary_grape()}, you are ")
+        if not self.grape_result:
+            formatted_output.append(f"in")
+        formatted_output.append(f"correct.\n")
+        
+        formatted_output.append(f"The country is {wine_obj.country}, you are ")
+        if not self.country_result:
+            formatted_output.append(f"in")
+        formatted_output.append(f"correct.\n")
+        
+        formatted_output.append(f"The region is {wine_obj.region}, you are ")
+        if not self.region_result:
+            formatted_output.append(f"in")
+        formatted_output.append(f"correct.\n")
 
-    # see note above in check_user_answers
-    def check_country(self, user_answer, wine):
-        if user_answer.lower() == wine.country.lower():
-            return True
-        else:
-            return False
+        formatted_output.append(f"The appellation is {wine_obj.appellation}, you are ")
+        if not self.appellation_result:
+            formatted_output.append(f"in")
+        formatted_output.append(f"correct.\n")
 
-    def check_region(self, user_answer, wine):
-        if user_answer.lower() == wine.region.lower():
-            return True
-        else:
-            return False
-
-    def check_appellation(self, user_answer, wine):
-        if user_answer.lower() == wine.appellation.lower():
-            return True
-        else:
-            return False
-
-    def check_grape(self, user_answer, wine):
-        if user_answer.lower() == wine.grapes.lower():
-            return True
-        else:
-            return False
-
-    def check_vintage(self, user_answer, wine):
-        if user_answer == wine.vintage:
-            return True
-        else:
-            return False
+        formatted_output.append(f"The vintage is {wine_obj.vintage}, you are ")
+        if not self.vintage_result:
+            formatted_output.append(f"in")
+        formatted_output.append(f"correct.\n")
+    
+        return formatted_output

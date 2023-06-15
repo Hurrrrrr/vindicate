@@ -33,15 +33,19 @@ def get_tasting_note(wine):
     return TastingNote(wine)
 
 def get_user_answers(wine):
+    grape = input("What is the primary grape? ")
     country = input("What is the country? ")
     region = input("What is the region? ")
     appellation = input("What is the appellation? ")
-    grape = input("What is the primary grape? ")
     vintage = input("What is the vintage? ")
 
-    user_answers = Answers(country, region, appellation, grape, vintage)
+    user_answers = Answers(grape, country, region, appellation, vintage)
 
     return user_answers
+
+def print_results(results_list):
+    for result in results_list:
+        print(result)
     
 def main():
     scope = get_scope_from_user()
@@ -64,11 +68,14 @@ def main():
         else:
             print("Error generating tasting note")
         
+        
     finally:
         conn.close()
 
     user_answers = get_user_answers(mystery_wine)
     user_answers.check_user_answers(mystery_wine)
+    answers_output = user_answers.get_results_list()
+    print("".join(user_answers.get_formatted_results(mystery_wine)))
 
 if __name__ == "__main__":
     main()

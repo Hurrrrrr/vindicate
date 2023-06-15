@@ -351,7 +351,7 @@ class Wine:
         elif self.fruit_condition >= 102:
             return "Ripe"
         elif self.fruit_condition >= 51:
-            return "Tart"
+            return "Just-ripe"
         elif self.fruit_condition >= 0:
             return "Unripe"
         else:
@@ -415,11 +415,11 @@ class Wine:
         if self.herbaceous >= 212:
             return "Green Bell Pepper"
         elif self.herbaceous >= 168:
-            return "Grass"
+            return "Grassy"
         elif self.herbaceous >= 124:
             return "Asparagus"
         elif self.herbaceous >= 80:
-            return "Faint Greenness"
+            return "Faint Green"
         elif self.herbaceous >= 0:
             return "None"
         else:
@@ -455,11 +455,11 @@ class Wine:
         if self.earth_inorganic >= 230:
             return "Scraped Steel"
         elif self.earth_inorganic >= 202:
-            return "Flint"
+            return "Flinty"
         elif self.earth_inorganic >= 174:
-            return "Chalk"
+            return "Chalky"
         elif self.earth_inorganic >= 146:
-            return "Slate"
+            return "Slatey"
         elif self.earth_inorganic >= 118:
             return "Wet Pavement"
         elif self.earth_inorganic >= 90:
@@ -503,6 +503,9 @@ class Wine:
     
     def get_aroma_other(self):
         return self.aroma_other
+    
+    def get_primary_grape(self):
+        return self.grapes.split(",")[0]
     
 
 

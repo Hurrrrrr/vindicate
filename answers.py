@@ -36,6 +36,16 @@ class Answers:
         print(self.appellation_result)
         print(self.grape_result)
         print(self.vintage_result)
+    
+    def get_results(self, wine_obj):
+        results_list = []
+        results_list.append(self.country_result)
+        results_list.append(self.region_result)
+        results_list.append(self.appellation_result)
+        results_list.append(self.grape_result)
+        results_list.append(self.vintage_result)
+        return results_list
+
 
     # see note above in check_user_answers
     def check_country(self, user_answer, wine):

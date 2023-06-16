@@ -6,14 +6,48 @@ class TastingNote:
     # output a numerical value, whereas these values should be converted
     # to strings here. this allows the randomization to happen here
     # instead of in the wine class where it would alter the values
-    # of the wine itself which
+    # of the wine itself which is not logical
 
+    # is the wine object here necessary if this is going to have all the
+    # attributes needed?
     # add accuracy to here and main
     def __init__(self, wine):
         self.wine = wine
 
         # temporary fixed value until this becomes a parameter!!
         self.accuracy = 3
+
+        self.label_color = wine.label_color
+        self.clarity = wine.clarity
+        self.appearance_other = wine.appearance_other
+        self.condition = wine.condition
+        self.nose_intensity = wine.nose_intensity
+        self.development = wine.development
+        self.petillance = wine.petillance
+        self.sweetness = wine.sweetness
+        self.acidity = wine.acidity
+        self.alcohol = wine.alcohol
+        self.body = wine.body
+        self.tannin_or_bitterness = wine.tannin_or_bitterness
+        self.finish = wine.finish
+        self.fruit_color = wine.fruit_color
+        self.fruit_family = wine.fruit_family
+        self.fruit_condition = wine.fruit_condition
+        self.fruit_subcondition = wine.fruit_subcondition
+        self.floral = wine.floral
+        self.herbaceous = wine.herbaceous
+        self.herbal = wine.herbal
+        self.earth_organic = wine.earth_organic
+        self.earth_inorganic = wine.earth_inorganic
+        self.grape_spice = wine.grape_spice
+        self.oak = wine.oak
+        self.aroma_other = wine.aroma_other
+
+        # will be implemented once display is graphical
+        self.appearance_red = wine.appearance_red
+        self.appearance_green = wine.appearance_green
+        self.appearance_blue = wine.appearance_blue
+
 
     def generate_description(self):
         output = []

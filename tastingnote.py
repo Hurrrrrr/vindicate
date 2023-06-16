@@ -1,14 +1,26 @@
+from numpy.random import normal
+
 class TastingNote:
 
+    # this probably needs to be refactored. the wine getters should just
+    # output a numerical value, whereas these values should be converted
+    # to strings here. this allows the randomization to happen here
+    # instead of in the wine class where it would alter the values
+    # of the wine itself which
+
+    # add accuracy to here and main
     def __init__(self, wine):
         self.wine = wine
 
-    # todo: add petillance
+        # temporary fixed value until this becomes a parameter!!
+        self.accuracy = 3
+
     def generate_description(self):
         output = []
 
         output.append(
-            f"This is a {self.wine.get_clarity()} "
+            f"This is a {self.wine.get_petillance()}, "
+            f"{self.wine.get_clarity()} "
             f"{self.wine.get_label_color()} wine.\n"
             f"The nose is of {self.wine.get_nose_intensity()} "
             f"intensity and it is {self.wine.get_development()}.\n"

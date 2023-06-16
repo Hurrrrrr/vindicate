@@ -11,6 +11,7 @@ Technologies/skills which are new to me for this project:
     using GPT4 for coding assistance
     porting a project from Python to webapp
     software architecture design
+    adding Gaussian noise to data to produce normally-distributed randomness
 
 GPT4 was used primarily for input on the architecture of this app, as well as
 writing some repetitive code such as the getters in the Wine class. The vast majority

@@ -1,3 +1,5 @@
+from Levenshtein import distance as dist
+
 class Answers:
 
     def __init__(self, grape, country, region, appellation, vintage):
@@ -29,28 +31,26 @@ class Answers:
         if self.check_vintage(wine_obj):
             self.vintage_result = True
 
-    # this needs to be fixed to work with multiple grapes
-    # write function to pull the first grape?
     def check_grape(self, wine):
-        if self.grape.lower() == wine.get_primary_grape().lower():
+        if dist(self.grape.lower(), wine.get_primary_grape().lower()):
             return True
         else:
             return False
 
     def check_country(self, wine):
-        if self.country.lower() == wine.country.lower():
+        if dist(self.country.lower(), wine.country.lower()) <= 1:
             return True
         else:
             return False
 
     def check_region(self, wine):
-        if self.region.lower() == wine.region.lower():
+        if dist(self.region.lower(), wine.region.lower()) <= 1:
             return True
         else:
             return False
 
     def check_appellation(self, wine):
-        if self.appellation.lower() == wine.appellation.lower():
+        if dist(self.appellation.lower(), wine.appellation.lower()) <= 1:
             return True
         else:
             return False

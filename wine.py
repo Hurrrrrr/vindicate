@@ -153,6 +153,9 @@ class Wine:
         self.aroma_other = aroma_other
 
     # getters
+    # in their current implementation, these probably
+    # need to move to TastingNote and be replaced with simple returns
+    # see note in tastingnote.py
 
     def __repr__(self):
         class_name = type(self).__name__
@@ -205,8 +208,8 @@ class Wine:
             return "Semi-Sparkling"
         elif self.petillance >= 20:
             return "Spritzy"
-        elif self.petillance >+ 0:
-            return "None"
+        elif self.petillance >= 0:
+            return "Still"
         else:
             return "Error outputting get_petillance"
 

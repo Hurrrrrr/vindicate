@@ -15,9 +15,20 @@ def get_scope_from_user():
         
         print("Invalid input. Please enter an integer from 0 to 3")
 
-def get_random_wine(list_of_wine_row_objects, scope):
+def get_accuracy_from_user():
+        while True:
+            accuracy = input("Choose accuracy from 0 (very low) to 5 (perfect) ")
+
+            if accuracy.isdigit():
+                accuracy = int(accuracy)
+                if 0 <= accuracy <= 5:
+                    return accuracy
+            
+            print("Invalid input. Please enter an integer from 0 to 5")
+
+def get_random_wine(wine_row_objects_list, scope):
         wine_list = []
-        for row in list_of_wine_row_objects:
+        for row in wine_row_objects_list:
             row_dict = dict(row)
             if row_dict['scope'] >= scope:
                 wine_list.append(Wine(**row_dict))
@@ -49,6 +60,7 @@ def print_results(results_list):
     
 def main():
     scope = get_scope_from_user()
+    accuracy = get_accuracy_from_user()
 
     try:
         with open("catalog.sql", "r") as sql_file:

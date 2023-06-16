@@ -32,7 +32,7 @@ class Answers:
             self.vintage_result = True
 
     def check_grape(self, wine):
-        if dist(self.grape.lower(), wine.get_primary_grape().lower()):
+        if dist(self.grape.lower(), wine.get_primary_grape().lower()) <= 1:
             return True
         else:
             return False

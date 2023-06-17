@@ -11,11 +11,11 @@ class TastingNote:
     # is the wine object here necessary if this is going to have all the
     # attributes needed?
     # add accuracy to here and main
-    def __init__(self, wine):
+    def __init__(self, wine, accuracy):
         self.wine = wine
 
         # temporary fixed value until this becomes a parameter!!
-        self.accuracy = 3
+        self.accuracy = accuracy
 
         self.label_color = wine.label_color
         self.clarity = wine.clarity
@@ -134,7 +134,7 @@ class TastingNote:
             return "Semi-Sparkling"
         elif self.petillance >= 20:
             return "Spritzy"
-        elif self.petillance >= 0:
+        elif self.petillance <= 0:
             return "Still"
         else:
             return "Error outputting get_petillance"
@@ -146,6 +146,7 @@ class TastingNote:
         return self.label_color
     
     def get_nose_intensity(self):
+        self.nose_intensity = self.randomize_standard(self.accuracy, self.nose_intensity)
         if self.nose_intensity >= 204:
             return "High"
         elif self.nose_intensity >= 153:
@@ -154,17 +155,18 @@ class TastingNote:
             return "Medium"
         elif self.nose_intensity >= 51:
             return "Medium-Minus"
-        elif self.nose_intensity >= 0:
+        elif self.nose_intensity <= 0:
             return "Low"
         else:
             return "Error outputting nose_intensity"
     
     def get_development(self):
+        self.development = self.randomize_standard(self.accuracy, self.development)
         if self.development >= 170:
             return "Mature"
         elif self.development >= 85:
             return "Developing"
-        elif self.development >= 0:
+        elif self.development <= 0:
             return "Youthful" 
         else:
             return "Error outputting get_development"
@@ -178,7 +180,7 @@ class TastingNote:
             return "Medium-Sweet"
         elif self.sweetness >= 5:
             return "Medium-Dry"
-        elif self.sweetness >= 0:
+        elif self.sweetness <= 0:
             return "Dry"
         else:
             return "Error outputting get_sweetness"
@@ -192,7 +194,7 @@ class TastingNote:
             return "Medium"
         elif self.acidity >= 51:
             return "Medium-Minus"
-        elif self.acidity >= 0:
+        elif self.acidity <= 0:
             return "Low"
         else:
             return "Error outputting get_acidity"
@@ -209,7 +211,7 @@ class TastingNote:
             return "Medium"
         elif self.body >= 51:
             return "Medium-Minus"
-        elif self.body >= 0:
+        elif self.body <= 0:
             return "Light"
         else:
             return "Error outputting get_body"
@@ -225,7 +227,7 @@ class TastingNote:
             return "Medium-Minus"
         elif self.tannin_or_bitterness >= 30:
             return "Low"
-        elif self.tannin_or_bitterness >= 0:
+        elif self.tannin_or_bitterness <= 0:
             return "None"
         else:
             return "Error outputting get_tannin_or_bitterness"
@@ -239,7 +241,7 @@ class TastingNote:
             return "Medium"
         elif self.finish >= 51:
             return "Medium-Minus"
-        elif self.finish >= 0:
+        elif self.finish <= 0:
             return "Short"
         else:
             return "Error outputting get_finish"
@@ -253,7 +255,7 @@ class TastingNote:
             return "Ripe"
         elif self.fruit_condition >= 51:
             return "Just-ripe"
-        elif self.fruit_condition >= 0:
+        elif self.fruit_condition <= 0:
             return "Unripe"
         else:
             return "Error outputting get_fruit_condition"
@@ -275,7 +277,7 @@ class TastingNote:
             return "Yellow"
         elif self.fruit_color >= 28:
             return "Green"
-        elif self.fruit_color >= 0:
+        elif self.fruit_color <= 0:
             return "Very-Green"
         else:
             return "Error outputting get_fruit_color"
@@ -298,7 +300,7 @@ class TastingNote:
                 return "Sweet Citrus"
             elif self.fruit_family >= 28:
                 return "Tart Pome"
-            elif self.fruit_family >= 0:
+            elif self.fruit_family <= 0:
                 return "Tart Citrus"
             else:
                 return "White fruit error"
@@ -309,7 +311,7 @@ class TastingNote:
                 return "Sweet Stone"
             elif self.fruit_family >= 64:
                 return "Tart Berry"
-            elif self.fruit_family >= 0:
+            elif self.fruit_family <= 0:
                 return "Vegetal"
             else:
                 return "Red fruit error"
@@ -325,7 +327,7 @@ class TastingNote:
             return "Dried"
         elif self.fruit_subcondition >= 100:
             return "Candied"
-        elif self.fruit_subcondition >= 0:
+        elif self.fruit_subcondition <= 0:
             return "None"
         else:
             return "Error outputting get_fruit_subcondition"
@@ -346,7 +348,7 @@ class TastingNote:
                 return "Honeysuckle"
             elif self.floral >= 70:
                 return "Faint White Flowers"
-            elif self.floral >= 0:
+            elif self.floral <= 0:
                 return "None"
             else:
                 return "White floral error"
@@ -363,7 +365,7 @@ class TastingNote:
                 return "Violets"
             elif self.floral >= 70:
                 return "Faint Purple Flowers"
-            elif self.floral >= 0:
+            elif self.floral <= 0:
                 return "None"
             else:
                 return "Red floral error"
@@ -379,7 +381,7 @@ class TastingNote:
             return "Asparagus"
         elif self.herbaceous >= 80:
             return "Faint Green"
-        elif self.herbaceous >= 0:
+        elif self.herbaceous <= 0:
             return "None"
         else:
             return "Error outputting get_herbaceous"
@@ -393,7 +395,7 @@ class TastingNote:
             return "Potting Soil"
         elif self.earth_organic >= 90:
             return "White Mushroom"
-        elif self.earth_organic >= 0:
+        elif self.earth_organic <= 0:
             return "None"
         else:
             return "Error outputting get_earth_organic"
@@ -411,7 +413,7 @@ class TastingNote:
             return "Wet Pavement"
         elif self.earth_inorganic >= 90:
             return "Wet Stone"
-        elif self.earth_inorganic >= 0:
+        elif self.earth_inorganic <= 0:
             return "None"
         else:
             return "Error outputting get_earth_inorganic"
@@ -423,7 +425,7 @@ class TastingNote:
             return "Resinous Herbs"
         elif self.herbal >= 120:
             return "Faint Dried Herbs"
-        elif self.herbal >= 0:
+        elif self.herbal <= 0:
             return "None"
         else:
             return "Error outputting get_herbal"
@@ -437,7 +439,7 @@ class TastingNote:
             return "Black Licorice"
         elif self.grape_spice >= 140:
             return "Fennel"
-        elif self.grape_spice >= 0:
+        elif self.grape_spice <= 0:
             return "None"
         else:
             return "Error outputting get_grape_spice"
@@ -455,7 +457,7 @@ class TastingNote:
             return "Sawdust"
         elif self.oak >= 105:
             return "Baking Spice"
-        elif self.oak >= 0:
+        elif self.oak <= 0:
             return "None"
         else:
             return "Error outputting get_oak"
@@ -562,6 +564,19 @@ class TastingNote:
                 output_list.append(item)
         
         return output_list
+    
+    # main randomization function used to introduce inaccuracy
+    # in the tasting note, used for many but not all attributes
+    # certain attributes require custom randomization because of
+    # non-standard ranges
+
+    # this seems to return None??
+    def randomize_standard(self, accuracy, value):
+        if accuracy == 5:
+            return int(value)
+        else:
+            return int(normal(loc = value, scale = (15 * (4 - accuracy)), size = 1)[0])
+
 
 
     def __repr__(self):

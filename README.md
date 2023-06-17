@@ -16,4 +16,15 @@ New-to-me technologies/skills which I learned for this project:
 
 GPT4 was used primarily for input on the architecture of this app, as well as
 writing some repetitive code such as the getters in the Wine class. The vast majority
-of code was written by hand.
+of code was written by me.
+
+Features currently being developed for launch:
+    Optional randomised inaccuracies 
+    Becoming a webapp
+    More wines
+
+Features to come post-launch:
+    Graphical display
+    Add sparkling, fortified, sweet, rose, and orange wines
+    More customisation (select certain countries, styles, etc.)
+    User accounts

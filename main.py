@@ -40,8 +40,8 @@ def get_random_wine(wine_row_objects_list, scope):
         else:
             return("No wines found within chosen scope")
 
-def get_tasting_note(wine):
-    return TastingNote(wine)
+def get_tasting_note(wine, accuracy):
+    return TastingNote(wine, accuracy)
 
 def get_user_answers(wine):
     grape = input("What is the primary grape? ")
@@ -76,7 +76,7 @@ def main():
         mystery_wine = get_random_wine(rows, scope)
         # there's probably a better way to do this
         if type(mystery_wine) != ('str'):
-            print(get_tasting_note(mystery_wine))
+            print(get_tasting_note(mystery_wine, accuracy))
         else:
             print("Error generating tasting note")
         

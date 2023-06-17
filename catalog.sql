@@ -229,4 +229,42 @@ VALUES (
     120,
     110,
     'Graphite,Pencil Shavings'
+),  (
+    2,                              -- scope
+    'Table',                        -- style
+    'White',                        -- color
+    'Greece',                          -- country
+    'Test Region',                   -- region
+    'Test App',                  -- appellation
+    'Test Grape',        -- grapes
+    2019,                           -- vintage
+    'Test Producer',                -- producer
+    'Test Bottling',                -- bottling
+    'Clear',                        -- clarity
+    200,                            -- appearance_red
+    200,                            -- appearance_green
+    0,                              -- appearance_blue
+    'None',                     -- appearance_other
+    'Sound',                        -- condition
+    100,                            -- nose_intensity
+    100,                             -- development
+    100,                              -- petillance
+    100,                              -- sweetness
+    100,                            -- acidity
+    100,                            -- alcohol
+    100,                            -- body
+    100,                             -- tannin_or_bitterness
+    100,                            -- finish
+    100,                             -- fruit_color
+    100,                            -- fruit_family
+    100,                            -- fruit_condition
+    100,                            -- fruit_subcondition
+    100,                             -- floral
+    100,                             -- herbaceous
+    100,                            -- herbal
+    100,                            -- earth_organic
+    100,                            -- earth_inorganic
+    100,                            -- grape_spice
+    100,                            -- oak
+    'None'                         -- aroma_other
 );

@@ -1,3 +1,4 @@
+import random
 from numpy.random import normal
 
 # output bug is related to the randomization changing values to None later
@@ -34,7 +35,11 @@ class TastingNote:
         self.earth_inorganic = self.randomize_ordinal(accuracy, wine.earth_inorganic)
         self.grape_spice = self.randomize_ordinal(accuracy, wine.grape_spice)
         self.oak = self.randomize_ordinal(accuracy, wine.oak)
-        self.aroma_other = wine.aroma_other
+        self.aroma_other = self.randomize_other(accuracy, wine.aroma_other)
+
+        # used for randomly manipulating the other aromas list
+        self.other_delete_flag = 0
+        self.other_insert_flag = 0
 
         # will be implemented once display is graphical
         self.appearance_red = wine.appearance_red
@@ -562,20 +567,65 @@ class TastingNote:
     # only to be used on attributes that are ordinal scales (ie. aromas)
     # not on ratio scales (ie. alcohol, sweetness)
     def randomize_ordinal(self, accuracy, value):
+        RANDOMNESS = 15
         if accuracy == 5:
             return int(value)
         else:
-            return int(normal(loc = value, scale = (15 * (5 - accuracy)), size = 1)[0])
+            return int(normal(loc = value, scale = (RANDOMNESS * (5 - accuracy)), size = 1)[0])
     
     # only for ratio scales, see note on randomize_ordinal()
     def randomize_ratio(self, accuracy, value):
+        RANDOMNESS = 0.045
         if accuracy == 5:
             return int(value)
         else:
-            return int(normal(loc = value, scale = (int((value * 0.045)) * (5 - accuracy)), size = 1)[0])
+            return int(normal(loc = value, scale = (int((value * RANDOMNESS)) * (5 - accuracy)), size = 1)[0])
     
+    # FIX WEIRD WHITESPACE / COMMA OUTPUT
+    # randomly remove or insert "other" aromas
     def randomize_other(self, accuracy, comma_separated_string):
+        # chance of change = 1/X
+
+        DELETE_CHANCE = 10
+        INSERT_CHANCE = 1           # TEMPORARY FOR TESTING, SHOULD BE 20
         
+        # separate into white/red etc.
+        aroma_pool = ("Smoke", "Petrol", "Barnyard", "Toast", "Ginger", "Fresh Bread")
+
+        delete_count = 0
+        insert_count = 0
+        none_flag = False
+
+        if accuracy == 5:
+            return comma_separated_string
+
+        for i in range(5 - accuracy):
+            if random.randint(1, DELETE_CHANCE) == DELETE_CHANCE:
+                delete_count += 1
+            if random.randint(1, INSERT_CHANCE) == INSERT_CHANCE:
+                insert_count += 1
+        
+        if comma_separated_string == "None":
+            comma_separated_string = ""
+
+        aromas_list = comma_separated_string.split(",")
+
+        while len(aromas_list) > 0 and delete_count > 0:
+            random.shuffle(aromas_list)
+            del aromas_list[0]
+            delete_count -= 1
+        
+        for i in range(insert_count):
+            random_aroma = random.choice(aroma_pool)
+            if random_aroma not in aromas_list:
+                aromas_list.append(random_aroma)
+        
+        if not aromas_list:
+            aromas_list.append("None")
+
+        random.shuffle(aromas_list)
+        aromas_string = ",".join(aromas_list)
+        return aromas_string
 
 
 

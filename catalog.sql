@@ -78,13 +78,13 @@ INSERT INTO wines (
     oak,
     aroma_other)
 VALUES (
-    1,                              -- scope
+    0,                              -- scope
     'Table',                        -- style
     'White',                        -- color
     'USA',                          -- country
     'California',                   -- region
     'Napa Valley',                  -- appellation
-    'Chardonnay,Pinot Gris',        -- grapes
+    'Chardonnay',        -- grapes
     2018,                           -- vintage
     'Test Producer',                -- producer
     'Test Bottling',                -- bottling

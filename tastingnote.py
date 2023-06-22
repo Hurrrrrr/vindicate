@@ -581,23 +581,21 @@ class TastingNote:
         else:
             return int(normal(loc = value, scale = (int((value * RANDOMNESS)) * (5 - accuracy)), size = 1)[0])
     
-    # FIX WEIRD WHITESPACE / COMMA OUTPUT
     # randomly remove or insert "other" aromas
     def randomize_other(self, accuracy, comma_separated_string):
-        # chance of change = 1/X
-
-        DELETE_CHANCE = 10
-        INSERT_CHANCE = 1           # TEMPORARY FOR TESTING, SHOULD BE 20
         
-        # separate into white/red etc.
-        aroma_pool = ("Smoke", "Petrol", "Barnyard", "Toast", "Ginger", "Fresh Bread")
-
+        # chance of change = 1 in X
+        DELETE_CHANCE = 10
+        INSERT_CHANCE = 20
+        
         delete_count = 0
         insert_count = 0
         none_flag = False
 
         if accuracy == 5:
             return comma_separated_string
+        
+        aroma_pool = self.create_aroma_pool()
 
         for i in range(5 - accuracy):
             if random.randint(1, DELETE_CHANCE) == DELETE_CHANCE:
@@ -608,7 +606,10 @@ class TastingNote:
         if comma_separated_string == "None":
             comma_separated_string = ""
 
-        aromas_list = comma_separated_string.split(",")
+        if comma_separated_string:
+            aromas_list = comma_separated_string.split(",")
+        else:
+            aromas_list = []
 
         while len(aromas_list) > 0 and delete_count > 0:
             random.shuffle(aromas_list)
@@ -626,6 +627,12 @@ class TastingNote:
         random.shuffle(aromas_list)
         aromas_string = ",".join(aromas_list)
         return aromas_string
+    
+    def create_aroma_pool(self):
+        if self.get_label_color == "White":
+            return ("Smoke", "Petrol", "Toast", "Ginger", "Fresh Bread")
+        elif self.get_label_color == "Red":
+            return ("Smoke", "Barnyard", "Toast")
 
 
 

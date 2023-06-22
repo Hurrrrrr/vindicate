@@ -99,3 +99,6 @@ class Answers:
         formatted_output.append(f"correct.\n")
     
         return formatted_output
+    
+    def update_attribute(self, attribute_name, correct_value):
+        setattr(self, attribute_name, correct_value)

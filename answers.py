@@ -20,6 +20,7 @@ class Answers:
         self.region_score = 0
         self.appellation_score = 0
         self.vintage_score = 0
+        self.total_score = 0
     
     def check_user_answers(self, wine_obj):
         if self.check_grape(wine_obj):
@@ -84,6 +85,9 @@ class Answers:
     def get_formatted_results(self, wine_obj):
         formatted_output = []
 
+        # should this go in main?
+        self.update_score(wine_obj)
+
         formatted_output.append(f"The primary grape is {wine_obj.get_primary_grape()}, you are ")
         if not self.grape_result:
             formatted_output.append(f"in")
@@ -109,9 +113,51 @@ class Answers:
             formatted_output.append(f"in")
         formatted_output.append(f"correct.\n")
     
+        formatted_output.append(f"Your score: {self.total_score} / 100\n")
+    
         return formatted_output
     
     # this doesn't need to be its own function with the current implementation
     # but I'm encapsulating it for maintainability
     def update_attribute(self, attribute_name, correct_value):
         setattr(self, attribute_name, correct_value)
+    
+    def update_score(self, wine_obj):
+        self.total_score = (
+            self.score_grape() + self.score_country() + self.score_region() +
+            self.score_appellation() + self.score_vintage(wine_obj)
+        )
+    
+    def score_grape(self):
+        if self.grape_result:
+            return 35
+        else:
+            return 0
+    
+    def score_country(self):
+        if self.country_result:
+            return 25
+        else:
+            return 0
+    
+    def score_region(self):
+        if self.region_result:
+            return 20
+        else:
+            return 0
+    
+    def score_appellation(self):
+        if self.region_result:
+            return 10
+        else:
+            return 0
+    
+    def score_vintage(self, wine_obj):
+        response = int(self.vintage)
+        vintage = wine_obj.vintage
+        if response == vintage:
+            return 10
+        elif response == vintage + 1 or response == vintage - 1:
+            return 5
+        else:
+            return 0

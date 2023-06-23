@@ -14,6 +14,12 @@ class Answers:
         self.region_result = False
         self.appellation_result = False
         self.vintage_result = False
+
+        self.grape_score = 0
+        self.country_score = 0
+        self.region_score = 0
+        self.appellation_score = 0
+        self.vintage_score = 0
     
     def check_user_answers(self, wine_obj):
         if self.check_grape(wine_obj):
@@ -31,26 +37,31 @@ class Answers:
         if self.check_vintage(wine_obj):
             self.vintage_result = True
 
+    # continue here
     def check_grape(self, wine):
         if dist(self.grape.lower(), wine.get_primary_grape().lower()) <= 1:
+            self.update_attribute("grape", wine.get_primary_grape())
             return True
         else:
             return False
 
     def check_country(self, wine):
         if dist(self.country.lower(), wine.country.lower()) <= 1:
+            self.update_attribute("country", wine.country)
             return True
         else:
             return False
 
     def check_region(self, wine):
         if dist(self.region.lower(), wine.region.lower()) <= 1:
+            self.update_attribute("region", wine.region)
             return True
         else:
             return False
 
     def check_appellation(self, wine):
         if dist(self.appellation.lower(), wine.appellation.lower()) <= 1:
+            self.update_attribute("appellation", wine.appellation)
             return True
         else:
             return False
@@ -100,5 +111,7 @@ class Answers:
     
         return formatted_output
     
+    # this doesn't need to be its own function with the current implementation
+    # but I'm encapsulating it for maintainability
     def update_attribute(self, attribute_name, correct_value):
         setattr(self, attribute_name, correct_value)

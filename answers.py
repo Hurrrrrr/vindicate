@@ -38,7 +38,6 @@ class Answers:
         if self.check_vintage(wine_obj):
             self.vintage_result = True
 
-    # continue here
     def check_grape(self, wine):
         if dist(self.grape.lower(), wine.get_primary_grape().lower()) <= 1:
             self.update_attribute("grape", wine.get_primary_grape())
@@ -84,9 +83,6 @@ class Answers:
     
     def get_formatted_results(self, wine_obj):
         formatted_output = []
-
-        # should this go in main?
-        self.update_score(wine_obj)
 
         formatted_output.append(f"The primary grape is {wine_obj.get_primary_grape()}, you are ")
         if not self.grape_result:
@@ -134,6 +130,7 @@ class Answers:
         else:
             return 0
     
+    # partial points for old world/new world? perhaps once wines db is done
     def score_country(self):
         if self.country_result:
             return 25

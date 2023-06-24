@@ -1,9 +1,6 @@
 import random
 from numpy.random import normal
 
-# output bug is related to the randomization changing values to None later
-# perhaps change the check functions?
-
 class TastingNote:
 
     def __init__(self, wine, accuracy):
@@ -36,10 +33,6 @@ class TastingNote:
         self.grape_spice = self.randomize_ordinal(accuracy, wine.grape_spice)
         self.oak = self.randomize_ordinal(accuracy, wine.oak)
         self.aroma_other = self.randomize_other(accuracy, wine.aroma_other)
-
-        # used for randomly manipulating the other aromas list
-        self.other_delete_flag = 0
-        self.other_insert_flag = 0
 
         # will be implemented once display is graphical
         self.appearance_red = wine.appearance_red
@@ -590,7 +583,6 @@ class TastingNote:
         
         delete_count = 0
         insert_count = 0
-        none_flag = False
 
         if accuracy == 5:
             return comma_separated_string
@@ -633,8 +625,6 @@ class TastingNote:
             return ("Smoke", "Petrol", "Toast", "Ginger", "Fresh Bread")
         elif self.get_label_color == "Red":
             return ("Smoke", "Barnyard", "Toast")
-
-
 
     def __repr__(self):
         return self.generate_description()

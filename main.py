@@ -26,6 +26,19 @@ def get_accuracy_from_user():
             
             print("Invalid input. Please enter an integer from 0 to 5")
 
+def get_vintage_from_user():
+    while True:
+        vintage = input("What is the vintage? ")
+
+        if vintage.isdigit():
+            vintage = int(vintage)
+            return vintage
+        elif vintage.lower() == "nv" or vintage.lower() == "mv":
+            print("NV / MV currently not supported.")
+            pass
+        
+        print("Invalid input. Vintage must be an integer.")        
+
 def get_random_wine(wine_row_objects_list, scope):
         wine_list = []
         for row in wine_row_objects_list:
@@ -48,15 +61,11 @@ def get_user_answers(wine):
     country = input("What is the country? ")
     region = input("What is the region? ")
     appellation = input("What is the appellation? ")
-    vintage = input("What is the vintage? ")
+    vintage = get_vintage_from_user()
 
     user_answers = Answers(grape, country, region, appellation, vintage)
 
     return user_answers
-
-def print_results(results_list):
-    for result in results_list:
-        print(result)
     
 def main():
     scope = get_scope_from_user()
@@ -86,6 +95,7 @@ def main():
 
     user_answers = get_user_answers(mystery_wine)
     user_answers.check_user_answers(mystery_wine)
+    user_answers.update_score(mystery_wine)
     answers_output = user_answers.get_results_list()
     print("".join(user_answers.get_formatted_results(mystery_wine)))
 

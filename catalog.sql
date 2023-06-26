@@ -84,8 +84,8 @@ VALUES (
     'USA',                          -- country
     'California',                   -- region
     'Napa Valley',                  -- appellation
-    'Chardonnay',        -- grapes
-    2018,                           -- vintage
+    'Chardonnay',                   -- grape
+    2021,                           -- vintage
     'Test Producer',                -- producer
     'Test Bottling',                -- bottling
     'Clear',                        -- clarity
@@ -94,27 +94,27 @@ VALUES (
     0,                              -- appearance_blue
     'Sediment',                     -- appearance_other
     'Sound',                        -- condition
-    175,                            -- nose_intensity
-    75,                             -- development
+    220,                            -- nose_intensity
+    100,                            -- development
     0,                              -- petillance
-    5,                              -- sweetness
-    110,                            -- acidity
-    143,                            -- alcohol
+    4,                              -- sweetness
+    120,                            -- acidity
+    146,                            -- alcohol
     210,                            -- body
     10,                             -- tannin_or_bitterness
-    195,                            -- finish
+    220,                            -- finish
     75,                             -- fruit_color
     190,                            -- fruit_family
-    150,                            -- fruit_condition
-    180,                            -- fruit_subcondition
+    180,                            -- fruit_condition
+    210,                            -- fruit_subcondition
     80,                             -- floral
-    90,                             -- herbaceous
-    130,                            -- herbal
+    20,                             -- herbaceous
+    180,                            -- herbal
     100,                            -- earth_organic
-    100,                            -- earth_inorganic
-    150,                            -- grape_spice
-    125,                            -- oak
-    'Smoke'                         -- aroma_other
+    80,                             -- earth_inorganic
+    120,                            -- grape_spice
+    155,                            -- oak
+    'Buttered Popcorn,Candied Pecans'                         -- aroma_other
 ), (
     1,
     'Table',
@@ -230,7 +230,7 @@ VALUES (
     110,
     'Graphite,Pencil Shavings'
 ),  (
-    2,                              -- scope
+    3,                              -- scope
     'Table',                        -- style
     'White',                        -- color
     'Greece',                          -- country
@@ -267,4 +267,42 @@ VALUES (
     100,                            -- grape_spice
     100,                            -- oak
     'None'                         -- aroma_other
+),  (
+    0,
+'Table',
+'White',
+'France',
+'Burgundy',
+'Chablis 1er Cru',
+'Chardonnay',
+2020,
+'None',
+'None',
+'Clear',
+0,
+0,
+0,
+'None',
+'Sound',
+140,
+95,
+0,
+2,
+190,
+128,
+140,
+10,
+165,
+75,
+25,
+130,
+60,
+80,
+60,
+30,
+100,
+190,
+40,
+30,
+'Cheese Rind'
 );

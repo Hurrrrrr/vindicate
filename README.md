@@ -19,12 +19,12 @@ writing some repetitive code such as the getters in the Wine class. The vast maj
 of code was written by me.
 
 Features currently being developed for launch:
-    Optional randomised inaccuracies 
-    Becoming a webapp
     More wines
+    Becoming a webapp
 
 Features to come post-launch:
     Graphical display
+    More robust input parsing
     Add sparkling, fortified, sweet, rose, and orange wines
     More customisation (select certain countries, styles, etc.)
     User accounts

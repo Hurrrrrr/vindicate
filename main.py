@@ -4,7 +4,8 @@ from wine import Wine
 from tastingnote import TastingNote
 from answers import Answers
 
-# TODO: improve input validation; add wines to DB
+# TODO: improve input validation; add wines to DB; allow multiple
+# options as answer for region, appellation, etc
 
 def get_scope_from_user():
     while True:

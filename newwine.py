@@ -2,7 +2,7 @@
 # create new Wine database entries
 
 def format_string(user_string):
-    cap_string = user_string.capitalize()
+    cap_string = user_string.title()
     quoted_string = "'" + cap_string + "'"
     return quoted_string
 
@@ -119,8 +119,8 @@ new_wine.append(earth_organic + ',')
 new_wine.append(earth_inorganic + ',')
 new_wine.append(grape_spice + ',')
 new_wine.append(oak + ',')
-new_wine.append(format_string(aroma_other) + ',')
+new_wine.append(format_string(aroma_other))
 
-with open('newwine.txt', 'w') as f:
+with open('entry.txt', 'w') as f:
     for attribute in new_wine:
         f.write(attribute + '\n')

@@ -4,7 +4,8 @@ from wine import Wine
 from tastingnote import TastingNote
 from answers import Answers
 
-# TODO: tweak wine attributes ASAP! test
+# TODO: tweak wine attributes ASAP!
+# updated: fruit_color, fruit_family
 # improve input validation; add wines to DB; allow multiple
 # options as answer for region, appellation, etc
 

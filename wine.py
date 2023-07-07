@@ -94,8 +94,10 @@ class Wine:
         ##  display = bar chart
         self.finish = finish
 
-        ##  0-255; 0-27 = very-green, 28-55 = green, 56-83 = yellow, 84-111 = orange,
-        ##  112-139 = red, 140-167 = dark-red, 168-195 = purple, 196-223 = black, 224-255 = blue
+        ##  white: 0-42 = green, 43-85 = greenish, 86-128 = yellow
+        ##  129-171 = deep yellow, 172-214 = orange, 215-255 = deep orange
+        ##  red: 0-42 = orange, 43-85 = red, 86-128 = deep red
+        ##  129-171 = purple, 172-214 = blue, 215-255 = black
         ##  display = text
         self.fruit_color = fruit_color
 

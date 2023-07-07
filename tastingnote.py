@@ -250,62 +250,86 @@ class TastingNote:
             return "Error outputting get_fruit_condition"
         
     def get_fruit_color(self):
-        if self.fruit_color >= 224:
-            return "Blue"
-        elif self.fruit_color >= 196:
-            return "Black"
-        elif self.fruit_color >= 168:
-            return "Purple"
-        elif self.fruit_color >= 140:
-            return "Dark-Red"
-        elif self.fruit_color >= 112:
-            return "Red"
-        elif self.fruit_color >= 84:
-            return "Orange"
-        elif self.fruit_color >= 56:
-            return "Yellow"
-        elif self.fruit_color >= 28:
-            return "Green"
-        elif self.fruit_color < 28:
-            return "Very-Green"
+        if self.label_color == "White":
+            return self.get_white_color()
+        elif self.label_color == "Red":
+            return self.get_red_color()
         else:
-            return "Error outputting get_fruit_color"
+            return "Fruit color error. (Only white/red currently implemented)"
+    
+    def get_white_color(self):
+        if self.fruit_color >= 215:
+            return "Deep Orange"
+        elif self.fruit_color >= 172:
+            return "Orange"
+        elif self.fruit_color >= 129:
+            return "Yellow-Orange"
+        elif self.fruit_color >= 86:
+            return "Yellow"
+        elif self.fruit_color >= 43:
+            return "Greenish"
+        elif self.fruit_color < 43:
+            return "Green"
+        else:
+            return "Error outputting get_white_color"
+    
+    def get_red_color(self):
+        if self.fruit_color >= 215:
+            return "Black"
+        elif self.fruit_color >= 172:
+            return "Blue"
+        elif self.fruit_color >= 129:
+            return "Purple"
+        elif self.fruit_color >= 86:
+            return "Deep Red"
+        elif self.fruit_color >= 43:
+            return "Red"
+        elif self.fruit_color < 43:
+            return "Orange"
+        else:
+            return "Error outputting get_red_color"
 
     def get_fruit_family(self):
         if self.label_color == "White":
-            if self.fruit_family >= 224:
-                return "Melon"
-            elif self.fruit_family >= 196:
-                return "Sweet Tropical"
-            elif self.fruit_family >= 168:
-                return "Sweet Stone"
-            elif self.fruit_family >= 140:
-                return "Sweet Pome"
-            elif self.fruit_family >= 112:
-                return "Tart Tropical"
-            elif self.fruit_family >= 84:
-                return "Tart Stone"
-            elif self.fruit_family >= 56:
-                return "Sweet Citrus"
-            elif self.fruit_family >= 28:
-                return "Tart Pome"
-            elif self.fruit_family < 28:
-                return "Tart Citrus"
-            else:
-                return "White fruit error"
+            return self.get_white_family()
         elif self.label_color == "Red":
-            if self.fruit_family >= 192:
-                return "Rich Fleshy"
-            elif self.fruit_family >= 128:
-                return "Sweet Stone"
-            elif self.fruit_family >= 64:
-                return "Tart Berry"
-            elif self.fruit_family < 64:
-                return "Vegetal"
-            else:
-                return "Red fruit error"
+            return self.get_red_family()
         else:
-            return "Fruit family error. (Only white/red are implemented yet)"
+            return "Fruit family error. (Only white/red currently implemented)"
+    
+    def get_white_family(self):
+        if self.fruit_family >= 224:
+            return "Melon"
+        elif self.fruit_family >= 196:
+            return "Sweet Tropical"
+        elif self.fruit_family >= 168:
+            return "Sweet Stone"
+        elif self.fruit_family >= 140:
+            return "Sweet Pome"
+        elif self.fruit_family >= 112:
+            return "Tart Tropical"
+        elif self.fruit_family >= 84:
+            return "Tart Stone"
+        elif self.fruit_family >= 56:
+            return "Sweet Citrus"
+        elif self.fruit_family >= 28:
+            return "Tart Pome"
+        elif self.fruit_family < 28:
+            return "Tart Citrus"
+        else:
+            return "White fruit error"
+    
+    def get_red_family(self):
+        if self.fruit_family >= 192:
+            return "Rich Fleshy"
+        elif self.fruit_family >= 128:
+            return "Sweet Stone"
+        elif self.fruit_family >= 64:
+            return "Tart Berry"
+        elif self.fruit_family < 64:
+            return "Vegetal"
+        else:
+            return "Red fruit error"
 
     def get_fruit_subcondition(self):
         if self.fruit_subcondition >= 217:

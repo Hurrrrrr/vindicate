@@ -3,6 +3,9 @@ from numpy.random import normal
 
 class TastingNote:
 
+    AROMA_POOL_WHITE = ("Smoke", "Petrol", "Toast", "Ginger", "Fresh Bread", "Almond", "Honey")
+    AROMA_POOL_RED = ("Smoke", "Barnyard", "Toast", "Cola", "Game")
+
     def __init__(self, wine, accuracy):
         self.wine = wine
 
@@ -632,7 +635,8 @@ class TastingNote:
         if accuracy == 5:
             return comma_separated_string
         
-        aroma_pool = self.create_aroma_pool()
+        aroma_pool = self.get_aroma_pool()
+
 
         for i in range(5 - accuracy):
             if random.randint(1, DELETE_CHANCE) == DELETE_CHANCE:
@@ -665,11 +669,14 @@ class TastingNote:
         aromas_string = ",".join(aromas_list)
         return aromas_string
     
-    def create_aroma_pool(self):
-        if self.get_label_color == "White":
-            return ("Smoke", "Petrol", "Toast", "Ginger", "Fresh Bread", "Almond")
-        elif self.get_label_color == "Red":
-            return ("Smoke", "Barnyard", "Toast", "Cola", "Game")
+    def get_aroma_pool(self):
+        try:
+            if self.label_color == "White":
+                return self.AROMA_POOL_WHITE
+            elif self.label_color == "Red":
+                return self.AROMA_POOL_RED
+        except:
+            return ()
 
     def __repr__(self):
         return self.generate_description()

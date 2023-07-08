@@ -53,7 +53,7 @@ def get_random_wine(wine_row_objects_list, scope):
             return random_wine
             
         else:
-            return("No wines found within chosen scope")
+            raise ValueError("No wines found within chosen scope")
 
 def get_tasting_note(wine, accuracy):
     return TastingNote(wine, accuracy)
@@ -85,11 +85,10 @@ def main():
         rows = c.fetchall()
 
         mystery_wine = get_random_wine(rows, scope)
-        # there's probably a better way to do this
-        if type(mystery_wine) != ('str'):
+        try:
             print(get_tasting_note(mystery_wine, accuracy))
-        else:
-            print("Error generating tasting note")
+        except AttributeError:
+            print("Error generating tasting note: Not a valid Wine object")
         
         
     finally:

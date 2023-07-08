@@ -2,6 +2,9 @@ from Levenshtein import distance as dist
 
 class Answers:
 
+    OLD_WORLD = ("france", "italy", "spain", "germany")
+    NEW_WORLD = ("usa", "australia", "new zealand", "argentina")
+
     def __init__(self, grape, country, region, appellation, vintage):
         self.grape = grape
         self.country = country
@@ -10,7 +13,8 @@ class Answers:
         self.vintage = vintage
         
         self.grape_result = False
-        self.country_result = 0
+        self.country_result = False
+        self.world_result = False
         self.region_result = False
         self.appellation_result = False
         self.vintage_result = False
@@ -28,6 +32,9 @@ class Answers:
 
         if self.check_country(wine_obj):
             self.country_result = True
+        
+        if self.check_world(wine_obj):
+            self.world_result = True
         
         if self.check_region(wine_obj):
             self.region_result = True
@@ -48,11 +55,22 @@ class Answers:
     def check_country(self, wine):
         if dist(self.country.lower(), wine.country.lower()) <= 1:
             self.update_attribute("country", wine.country)
-            return 2
-        elif 1 == 1:    # check for new/old world
-            return 1
+            return True
         else:
-            return 0
+            self.world_result = self.check_world(wine)
+            return False
+    
+    #   unlike check_country, this requires perfect user input
+    #   not a difficult fix but not necessary once uinput becomes menu-based
+    #   which is coming soon
+    def check_world(self, wine):
+        if wine.country.lower() in self.OLD_WORLD:
+            if self.country in self.OLD_WORLD:
+                return True
+        else:
+            if self.country in self.NEW_WORLD:
+                return True
+        return False
 
     def check_region(self, wine):
         if dist(self.region.lower(), wine.region.lower()) <= 1:
@@ -132,10 +150,11 @@ class Answers:
         else:
             return 0
     
-    # partial points for old world/new world? perhaps once wines db is done
     def score_country(self):
         if self.country_result:
             return 25
+        elif self.world_result:
+            return 10
         else:
             return 0
     

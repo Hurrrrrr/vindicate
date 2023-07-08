@@ -10,7 +10,7 @@ class Answers:
         self.vintage = vintage
         
         self.grape_result = False
-        self.country_result = False
+        self.country_result = 0
         self.region_result = False
         self.appellation_result = False
         self.vintage_result = False
@@ -48,9 +48,11 @@ class Answers:
     def check_country(self, wine):
         if dist(self.country.lower(), wine.country.lower()) <= 1:
             self.update_attribute("country", wine.country)
-            return True
+            return 2
+        elif 1 == 1:    # check for new/old world
+            return 1
         else:
-            return False
+            return 0
 
     def check_region(self, wine):
         if dist(self.region.lower(), wine.region.lower()) <= 1:
@@ -144,7 +146,7 @@ class Answers:
             return 0
     
     def score_appellation(self):
-        if self.region_result:
+        if self.appellation_result:
             return 10
         else:
             return 0

@@ -7,7 +7,8 @@ class Wine:
     body, tannin_or_bitterness, finish,
     fruit_color, fruit_family,                                              ## palate
     fruit_ripeness, fruit_subcondition, floral, herbaceous, herbal,
-    earth_organic, earth_inorganic, grape_spice, oak, aroma_other):
+    earth_organic, earth_inorganic, grape_spice, oak_aroma, oak_intensity,
+    aroma_other):
         self.id = id
 
         ##  0-3; 0 = narrow, 1 = medium, 2 = wide, 3 = very wide
@@ -113,14 +114,17 @@ class Wine:
         ##  display = text
         self.fruit_family = fruit_family
 
+        #   self.fruit_subfamily
+        #   
+
         ##  now this will just be a value 0-255, descriptors will be generated more specifically later
         ##  obsolete: 0-50 = unripe, 51-101 = just-ripe, 102-152 = ripe, 153-203 = overripe, 204-255 = jammy 
         ##  display = none
         ##
         ##  to be implemented in tastingnote:
         ##  white citrus: tart, sweet, candied
-        ##  white tart tropical: passion fruit, guava, pineapple, mango
-        ##  white pome: crabapple, sour apple, apple, overripe pear, quince jam
+        ##  white tart tropical: unripe, just-ripe, ripe, overripe, candied
+        ##  white pome: crabapple, apple, overripe pear, quince jam
         ##  white stone: unripe stone fruit, underripe stone fruit, stone fruit, overripe stone fruit, jammy stone fruit
         ##  white sweet tropical: melon, banana, papaya
         ##  red misc_sour: tomato, rhubarb, currant, pomegranate
@@ -161,19 +165,17 @@ class Wine:
         ##  display = text
         self.grape_spice = grape_spice
 
-        ##  0-79 = none, 80-104 = sawdust, 105-129 = cedar, 130-154 = vanilla,
-        ##  155-179 = caramel, 180-204 = chocolate, 205-229 = burnt marshmallow, 230-255 = coffee
-        ##  display = text
-        self.oak = oak
+        ##  0-36 = sawdust, 37-73 = sandalwood, 74-110 = baking spice, 111-147 = vanilla,
+        ##  148-184 = caramel, 185-221 = mocha, 222-255 = coffee
+        ##  for unoaked wines, default is 100
+        self.oak_aroma = oak_aroma
+
+        ##  0-89 = none, 90-131 = faint, 132-173 = moderate, 174-215 = strong, 216-255 = intense
+        self.oak_intensity = oak_intensity
 
         ##  comma separated string
         ##  display = text
         self.aroma_other = aroma_other
-
-    # getters
-    # in their current implementation, these probably
-    # need to move to TastingNote and be replaced with simple returns
-    # see note in tastingnote.py
 
     def __repr__(self):
         class_name = type(self).__name__
@@ -252,8 +254,11 @@ class Wine:
     def get_grape_spice(self):
         return self.grape_spice
 
-    def get_oak(self):
-        return self.oak
+    def get_oak_aroma(self):
+        return self.oak_aroma
+    
+    def get_oak_intensity(self):
+        return self.oak_intensity
     
     def get_aroma_other(self):
         return self.aroma_other

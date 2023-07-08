@@ -31,7 +31,8 @@ class TastingNote:
         self.earth_organic = self.randomize_ordinal(accuracy, wine.earth_organic)
         self.earth_inorganic = self.randomize_ordinal(accuracy, wine.earth_inorganic)
         self.grape_spice = self.randomize_ordinal(accuracy, wine.grape_spice)
-        self.oak = self.randomize_ordinal(accuracy, wine.oak)
+        self.oak_aroma = self.randomize_ordinal(accuracy, wine.oak_aroma)
+        self.oak_intensity = self.randomize_ratio(accuracy, wine.oak_intensity)
         self.aroma_other = self.randomize_other(accuracy, wine.aroma_other)
 
         # will be implemented once display is graphical
@@ -321,9 +322,9 @@ class TastingNote:
     
     def get_red_family(self):
         if self.fruit_family >= 192:
-            return "Plummy"
+            return "Sweet Stone"
         elif self.fruit_family >= 128:
-            return "Cherry"
+            return "Tart Stone"
         elif self.fruit_family >= 64:
             return "Tart Berry"
         elif self.fruit_family < 64:
@@ -458,28 +459,42 @@ class TastingNote:
             return "Error outputting get_grape_spice"
     
     def get_oak(self):
-        if self.oak >= 230:
-            return "Coffee"
-        elif self.oak >= 205:
-            return "Burnt Marshmallow"
-        elif self.oak >= 180:
-            return "Vanilla"
-        elif self.oak >= 155:
-            return "Oak Resin"
-        elif self.oak >= 130:
-            return "Sawdust"
-        elif self.oak >= 105:
-            return "Baking Spice"
-        elif self.oak < 105:
+        if self.get_oak_intensity() == "None":
             return "None"
         else:
-            return "Error outputting get_oak"
+            return f"{self.get_oak_intensity()} aromas of {self.get_oak_aroma()}"
     
-    def get_oak_toast(self):
-        return
+    def get_oak_aroma(self):
+        if self.oak_aroma >= 222:
+            return "Coffee"
+        elif self.oak_aroma >= 185:
+            return "Mocha"
+        elif self.oak_aroma >= 148:
+            return "Caramel"
+        elif self.oak_aroma >= 111:
+            return "Vanilla"
+        elif self.oak_aroma >= 74:
+            return "Baking Spice"
+        elif self.oak_aroma >= 37:
+            return "Sandalwood"
+        elif self.oak_aroma < 37:
+            return "Sawdust"
+        else:
+            return "Error outputting oak_aroma"
     
     def get_oak_intensity(self):
-        return
+        if self.oak_intensity >= 216:
+            return "Intense"
+        elif self.oak_intensity >= 174:
+            return "Strong"
+        elif self.oak_intensity >= 132:
+            return "Moderate"
+        elif self.oak_intensity >= 90:
+            return "Faint"
+        elif self.oak_intensity < 90:
+            return "None"
+        else:
+            return "Error oak_intensity"
     
     def get_aroma_other(self):
         return self.aroma_other
@@ -652,9 +667,9 @@ class TastingNote:
     
     def create_aroma_pool(self):
         if self.get_label_color == "White":
-            return ("Smoke", "Petrol", "Toast", "Ginger", "Fresh Bread")
+            return ("Smoke", "Petrol", "Toast", "Ginger", "Fresh Bread", "Almond")
         elif self.get_label_color == "Red":
-            return ("Smoke", "Barnyard", "Toast", "Cola")
+            return ("Smoke", "Barnyard", "Toast", "Cola", "Game")
 
     def __repr__(self):
         return self.generate_description()

@@ -4,8 +4,7 @@ from wine import Wine
 from tastingnote import TastingNote
 from answers import Answers
 
-# improve input validation; add wines to DB; allow multiple
-# options as answer for region, appellation, etc
+# TODO: partial points for new world/old world
 
 def get_scope_from_user():
     while True:

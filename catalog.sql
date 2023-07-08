@@ -35,7 +35,8 @@ CREATE TABLE IF NOT EXISTS wines (
     earth_organic INTEGER,
     earth_inorganic INTEGER,
     grape_spice INTEGER,
-    oak INTEGER,
+    oak_aroma INTEGER,
+    oak_intensity INTEGER,
     aroma_other TEXT
 );
 
@@ -75,7 +76,8 @@ INSERT INTO wines (
     earth_organic,
     earth_inorganic,
     grape_spice,
-    oak,
+    oak_aroma,
+    oak_intensity,
     aroma_other)
 VALUES (
     0,                              -- scope
@@ -113,7 +115,8 @@ VALUES (
     100,                            -- earth_organic
     80,                             -- earth_inorganic
     120,                            -- grape_spice
-    155,                            -- oak
+    140,                            -- oak_aroma
+    225,                             -- oak_intensity
     'Buttered Popcorn,Toasted Coconut'                         -- aroma_other
 ), (
     0,
@@ -151,7 +154,8 @@ VALUES (
     80,
     30,
     50,
-    50,
+    100,
+    0,
     'None'
 ), (
     0,
@@ -189,6 +193,7 @@ VALUES (
     70,
     155,
     130,
+    100,
     0,
     'Petrol'
 ), (
@@ -227,7 +232,8 @@ VALUES (
     160,
     100,
     120,
-    110,
+    60,
+    155,
     'Graphite,Pencil Shavings'
 ),  (
     3,                              -- scope
@@ -265,7 +271,8 @@ VALUES (
     100,                            -- earth_organic
     100,                            -- earth_inorganic
     100,                            -- grape_spice
-    100,                            -- oak
+    100,                            -- oak_aroma
+    100,                            -- oak_intensity
     'None'                         -- aroma_other
 ),  (
     0,
@@ -303,7 +310,8 @@ VALUES (
 100,
 190,
 40,
-30,
+100,
+70,
 'Cheese Rind'
 ),  (
     0,
@@ -341,7 +349,8 @@ VALUES (
 100,
 180,
 90,
-120,
+95,
+145,
 'Freshly-struck Match,Roast Hazelnut'
 ),  (
     0,
@@ -379,7 +388,8 @@ VALUES (
 110,
 210,
 120,
-20,
+100,
+70,
 'Quince,Wet Wool'
 ), (
     0,
@@ -417,7 +427,8 @@ VALUES (
 70,
 100,
 155,
-30,
+100,
+70,
 'Lychee,Orange Flower Water,Honey'
 ),  (
     0,
@@ -455,6 +466,7 @@ VALUES (
 30,
 60,
 0,
+100,
 0,
 'None'
 ),  (
@@ -493,6 +505,7 @@ VALUES (
 40,
 100,
 90,
+100,
 0,
 'Gooseberry,Passion Fruit'
 ),  (
@@ -531,7 +544,8 @@ VALUES (
 155,
 40,
 90,
-115,
+100,
+165,
 'None'
 ),  (
     0,
@@ -569,7 +583,8 @@ VALUES (
 160,
 80,
 75,
-140,
+80,
+135,
 'None'
 ),  (
     0,
@@ -607,6 +622,7 @@ VALUES (
 190,
 100,
 240,
-115,
+100,
+100,
 'Smoked Meat,Olive'
 );

@@ -78,7 +78,9 @@ earth_inorganic = input("\nWhat is the earth_inorganic?\n0-89 = none, 90-117 = w
 
 grape_spice = input("\nWhat is the grape spice?\n0-139 = none, 140-168: fennel, 169-197 = black licorice, 198-225 = black pepper, 226-255 = white pepper ")
 
-oak = input("\nWhat is the oak?\n0-79 = none, 80-104 = sawdust, 105-129 = cedar, 130-154 = vanilla, 155-179 = caramel, 180-204 = chocolate, 205-229 = burnt marshmallow, 230-255 = coffee ")
+oak_aroma = input("\nWhat is the oak_aroma?\n0-36 = sawdust, 37-73 = sandalwood, 74-110 = baking spice, 111-147 = vanilla, 148-184 = caramel, 185-221 = mocha, 222-255 = coffee ")
+
+get_oak_intensity = input("\nWhat is the oak_intensity?\n0-89 = none, 90-131 = faint, 132-173 = moderate, 174-215 = strong, 216-255 = intense ")
 
 aroma_other = input("\nWhat is the aroma_other?\n")
 
@@ -118,7 +120,8 @@ new_wine.append(herbal + ',')
 new_wine.append(earth_organic + ',')
 new_wine.append(earth_inorganic + ',')
 new_wine.append(grape_spice + ',')
-new_wine.append(oak + ',')
+new_wine.append(oak_aroma + ',')
+new_wine.append(oak_intensity + ',')
 new_wine.append(format_string(aroma_other))
 
 with open('entry.txt', 'w') as f:

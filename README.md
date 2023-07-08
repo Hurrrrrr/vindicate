@@ -13,18 +13,21 @@ New-to-me technologies/skills which I learned for this project:
     using GPT4 for coding assistance
     porting a project from Python to webapp
     adding Gaussian noise to data to produce normally-distributed randomness
+    complex text output formatting
 
 GPT4 was used primarily for input on the architecture of this app, as well as
 writing some repetitive code such as the getters in the Wine class. The vast majority
 of code was written by me.
 
 Features currently being developed for launch:
-    More wines
-    Becoming a webapp
+    Revised tasting note output
+    Becoming a webapp and everything involved in that
 
 Features to come post-launch:
     Graphical display
-    More robust input parsing
+    More wines
+    More robust input parsing and menu-based input
+    Improved tasting note output: more varied notes and more complex fruit notes
     Add sparkling, fortified, sweet, rose, and orange wines
-    More customisation (select certain countries, styles, etc.)
+    More customisation (focus on certain countries, styles, etc.)
     User accounts

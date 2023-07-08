@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS wines (
     finish INTEGER,
     fruit_color INTEGER,
     fruit_family INTEGER,
-    fruit_condition INTEGER,
+    fruit_ripeness INTEGER,
     fruit_subcondition INTEGER,
     floral INTEGER,
     herbaceous INTEGER,
@@ -67,7 +67,7 @@ INSERT INTO wines (
     finish,
     fruit_color,
     fruit_family,
-    fruit_condition,
+    fruit_ripeness,
     fruit_subcondition,
     floral,
     herbaceous,
@@ -105,7 +105,7 @@ VALUES (
     220,                            -- finish
     75,                             -- fruit_color
     190,                            -- fruit_family
-    180,                            -- fruit_condition
+    180,                            -- fruit_ripeness
     210,                            -- fruit_subcondition
     80,                             -- floral
     20,                             -- herbaceous
@@ -257,7 +257,7 @@ VALUES (
     100,                            -- finish
     100,                             -- fruit_color
     100,                            -- fruit_family
-    100,                            -- fruit_condition
+    100,                            -- fruit_ripeness
     100,                            -- fruit_subcondition
     100,                             -- floral
     100,                             -- herbaceous

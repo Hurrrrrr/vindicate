@@ -6,7 +6,7 @@ class Wine:
     petillance, sweetness, acidity, alcohol,                                ## structure
     body, tannin_or_bitterness, finish,
     fruit_color, fruit_family,                                              ## palate
-    fruit_condition, fruit_subcondition, floral, herbaceous, herbal,
+    fruit_ripeness, fruit_subcondition, floral, herbaceous, herbal,
     earth_organic, earth_inorganic, grape_spice, oak, aroma_other):
         self.id = id
 
@@ -94,23 +94,39 @@ class Wine:
         ##  display = bar chart
         self.finish = finish
 
+        ##  this is being refactored to be dependent on fruit_family in tastingnote
         ##  white: 0-42 = green, 43-85 = greenish, 86-128 = yellow
-        ##  129-171 = deep yellow, 172-214 = orange, 215-255 = deep orange
+        ##  129-171 = yellow-orange, 172-214 = orange, 215-255 = deep orange
         ##  red: 0-42 = orange, 43-85 = red, 86-128 = deep red
         ##  129-171 = purple, 172-214 = blue, 215-255 = black
         ##  display = text
         self.fruit_color = fruit_color
 
+        ##  this will now be the source for fruit_color in tastingnote
         ##  0-255; white: 0-27 = tart citrus, 28-55 = tart pome, 56-83 = sweet citrus,
         ##  84-111 = tart stone, 112-139 = tart tropical, 140-167 = sweet pome,
         ##  168-195 = sweet stone, 196-223 = sweet tropical, 224-255 = melon
         ##  red: 0-63 = vegetal, 64-127 = tart berry, 128-191 = sweet stone, 192-255 = rich fleshy
+        ##
+        ##  white: citrus, tart tropical, pome, stone, sweet tropical
+        ##  red: misc_sour, berry, stone
         ##  display = text
         self.fruit_family = fruit_family
 
-        ##  0-255; 0-50 = unripe, 51-101 = tart, 102-152 = ripe, 153-203 = overripe, 204-255 = jammy
-        ##  display = text
-        self.fruit_condition = fruit_condition
+        ##  now this will just be a value 0-255, descriptors will be generated more specifically later
+        ##  obsolete: 0-50 = unripe, 51-101 = just-ripe, 102-152 = ripe, 153-203 = overripe, 204-255 = jammy 
+        ##  display = none
+        ##
+        ##  to be implemented in tastingnote:
+        ##  white citrus: tart, sweet, candied
+        ##  white tart tropical: passion fruit, guava, pineapple, mango
+        ##  white pome: crabapple, sour apple, apple, overripe pear, quince jam
+        ##  white stone: unripe stone fruit, underripe stone fruit, stone fruit, overripe stone fruit, jammy stone fruit
+        ##  white sweet tropical: melon, banana, papaya
+        ##  red misc_sour: tomato, rhubarb, currant, pomegranate
+        ##  red berry: underripe berry, berry, overripe berry, berry jam
+        ##  red stone: sour cherry, sour plum, 
+        self.fruit_ripeness = fruit_ripeness
 
         ##  0-255; 0-99 = none, 100-138 = candied, 139-177 = dried, 178-216 = cooked, 217-255 = baked
         ##  display = text
@@ -212,8 +228,8 @@ class Wine:
     def get_fruit_family(self):
         return self.fruit_family
 
-    def get_fruit_condition(self):
-        return self.fruit_condition
+    def get_fruit_ripeness(self):
+        return self.fruit_ripeness
 
     def get_fruit_subcondition(self):
         return self.fruit_subcondition

@@ -23,7 +23,7 @@ class TastingNote:
         self.finish = self.randomize_ordinal(accuracy, wine.finish)
         self.fruit_color = self.randomize_ordinal(accuracy, wine.fruit_color)
         self.fruit_family = self.randomize_ordinal(accuracy, wine.fruit_family)
-        self.fruit_condition = self.randomize_ordinal(accuracy, wine.fruit_condition)
+        self.fruit_ripeness = self.randomize_ordinal(accuracy, wine.fruit_ripeness)
         self.fruit_subcondition = self.randomize_ordinal(accuracy, wine.fruit_subcondition)
         self.floral = self.randomize_ordinal(accuracy, wine.floral)
         self.herbaceous = self.randomize_ordinal(accuracy, wine.herbaceous)
@@ -61,7 +61,7 @@ class TastingNote:
         
         output.append(
             f"and the finish is {self.get_finish()}.\n"
-            f"The wine shows {self.get_fruit_condition()}, "
+            f"The wine shows {self.get_fruit_ripeness()}, "
             f"{self.get_fruit_color()}, {self.get_fruit_family()} fruit"
         )
 
@@ -235,19 +235,19 @@ class TastingNote:
         else:
             return "Error outputting get_finish"
     
-    def get_fruit_condition(self):
-        if self.fruit_condition >= 204:
+    def get_fruit_ripeness(self):
+        if self.fruit_ripeness >= 204:
             return "Jammy"
-        elif self.fruit_condition >= 153:
+        elif self.fruit_ripeness >= 153:
             return "Overripe"
-        elif self.fruit_condition >= 102:
+        elif self.fruit_ripeness >= 102:
             return "Ripe"
-        elif self.fruit_condition >= 51:
+        elif self.fruit_ripeness >= 51:
             return "Just-ripe"
-        elif self.fruit_condition < 51:
+        elif self.fruit_ripeness < 51:
             return "Unripe"
         else:
-            return "Error outputting get_fruit_condition"
+            return "Error outputting get_fruit_ripeness"
         
     def get_fruit_color(self):
         if self.label_color == "White":
@@ -299,7 +299,7 @@ class TastingNote:
     
     def get_white_family(self):
         if self.fruit_family >= 224:
-            return "Melon"
+            return "Sweet Melon"
         elif self.fruit_family >= 196:
             return "Sweet Tropical"
         elif self.fruit_family >= 168:
@@ -321,9 +321,9 @@ class TastingNote:
     
     def get_red_family(self):
         if self.fruit_family >= 192:
-            return "Rich Fleshy"
+            return "Plummy"
         elif self.fruit_family >= 128:
-            return "Sweet Stone"
+            return "Cherry"
         elif self.fruit_family >= 64:
             return "Tart Berry"
         elif self.fruit_family < 64:
@@ -474,6 +474,12 @@ class TastingNote:
             return "None"
         else:
             return "Error outputting get_oak"
+    
+    def get_oak_toast(self):
+        return
+    
+    def get_oak_intensity(self):
+        return
     
     def get_aroma_other(self):
         return self.aroma_other
@@ -648,7 +654,7 @@ class TastingNote:
         if self.get_label_color == "White":
             return ("Smoke", "Petrol", "Toast", "Ginger", "Fresh Bread")
         elif self.get_label_color == "Red":
-            return ("Smoke", "Barnyard", "Toast")
+            return ("Smoke", "Barnyard", "Toast", "Cola")
 
     def __repr__(self):
         return self.generate_description()

@@ -104,33 +104,20 @@ class Wine:
 
         ##  0-255; white: 0-27 = tart citrus, 28-55 = tart pome, 56-83 = sweet citrus,
         ##  84-111 = tart stone, 112-139 = tart tropical, 140-167 = sweet pome,
-        ##  168-195 = sweet stone, 196-223 = sweet tropical, 224-255 = melon
-        ##  red: 0-63 = vegetal, 64-127 = tart berry, 128-191 = sweet stone, 192-255 = rich fleshy
-        ##
-        ##  white: citrus, tart tropical, pome, stone, sweet tropical
-        ##  red: misc_sour, berry, stone
+        ##  168-195 = sweet stone, 196-223 = sweet tropical, 224-255 = sweet melon
+        ##  red: 0-28 = vegetal, 29-85 = tart berry, 86-142 = tart stone,
+        ##  143-199 = sweet berry, 200-255 = sweet stone
         ##  display = text
         self.fruit_family = fruit_family
 
         #   self.fruit_subfamily
         #   
 
-        ##  now this will just be a value 0-255, descriptors will be generated more specifically later
-        ##  obsolete: 0-50 = unripe, 51-101 = just-ripe, 102-152 = ripe, 153-203 = overripe, 204-255 = jammy 
-        ##  display = none
-        ##
-        ##  to be implemented in tastingnote:
-        ##  white citrus: tart, sweet, candied
-        ##  white tart tropical: unripe, just-ripe, ripe, overripe, candied
-        ##  white pome: crabapple, apple, overripe pear, quince jam
-        ##  white stone: unripe stone fruit, underripe stone fruit, stone fruit, overripe stone fruit, jammy stone fruit
-        ##  white sweet tropical: melon, banana, papaya
-        ##  red misc_sour: tomato, rhubarb, currant, pomegranate
-        ##  red berry: underripe berry, berry, overripe berry, berry jam
-        ##  red stone: sour cherry, sour plum, 
+        ##  0-50 = unripe, 51-101 = just-ripe, 102-152 = ripe, 153-203 = overripe, 204-255 = jammy 
+        ##  display = text
         self.fruit_ripeness = fruit_ripeness
 
-        ##  0-255; 0-99 = none, 100-138 = candied, 139-177 = dried, 178-216 = cooked, 217-255 = baked
+        ##  0-38 = candied, 39-138 = none, 139-177 = dried, 178-216 = cooked, 217-255 = baked
         ##  display = text
         self.fruit_subcondition = fruit_subcondition
 
@@ -145,7 +132,7 @@ class Wine:
         ##  display = text
         self.herbaceous = herbaceous
 
-        ##  0-255; 0-119 = none, 120-164 = faint dried herbs, 165-209 = resinous herbs, 210-255 = medicinal herbs
+        ##  0-255; 0-119 = none, 120-164 = faint dried herbs, 165-209 = garrigue, 210-255 = medicinal herbs
         ##  
         ##  display = text
         self.herbal = herbal

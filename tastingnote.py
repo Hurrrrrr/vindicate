@@ -324,13 +324,15 @@ class TastingNote:
             return "White fruit error"
     
     def get_red_family(self):
-        if self.fruit_family >= 192:
+        if self.fruit_family >= 200:
             return "Sweet Stone"
-        elif self.fruit_family >= 128:
+        elif self.fruit_family >= 143:
+            return "Sweet Berry"
+        elif self.fruit_family >= 86:
             return "Tart Stone"
-        elif self.fruit_family >= 64:
+        elif self.fruit_family >= 29:
             return "Tart Berry"
-        elif self.fruit_family < 64:
+        elif self.fruit_family < 29:
             return "Vegetal"
         else:
             return "Red fruit error"
@@ -342,10 +344,10 @@ class TastingNote:
             return "Cooked"
         elif self.fruit_subcondition >= 139:
             return "Dried"
-        elif self.fruit_subcondition >= 100:
-            return "Candied"
-        elif self.fruit_subcondition < 100:
+        elif self.fruit_subcondition >= 39:
             return "None"
+        elif self.fruit_subcondition < 39:
+            return "Candied"
         else:
             return "Error outputting get_fruit_subcondition"
 
@@ -439,7 +441,7 @@ class TastingNote:
         if self.herbal >= 210:
             return "Medicinal Herbs"
         elif self.herbal >= 165:
-            return "Resinous Herbs"
+            return "Garrigue"
         elif self.herbal >= 120:
             return "Faint Dried Herbs"
         elif self.herbal < 120:

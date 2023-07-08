@@ -4,7 +4,7 @@ from wine import Wine
 from tastingnote import TastingNote
 from answers import Answers
 
-# TODO: partial points for new world/old world
+# TODO: partial points for secondary grapes
 
 def get_scope_from_user():
     while True:

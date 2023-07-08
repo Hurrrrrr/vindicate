@@ -88,13 +88,13 @@ VALUES (
     'Napa Valley',                  -- appellation
     'Chardonnay',                   -- grape
     2021,                           -- vintage
-    'Test Producer',                -- producer
-    'Test Bottling',                -- bottling
+    'None',                         -- producer
+    'None',                         -- bottling
     'Clear',                        -- clarity
     255,                            -- appearance_red
     213,                            -- appearance_green
     0,                              -- appearance_blue
-    'Sediment',                     -- appearance_other
+    'None',                         -- appearance_other
     'Sound',                        -- condition
     220,                            -- nose_intensity
     100,                            -- development
@@ -108,7 +108,7 @@ VALUES (
     75,                             -- fruit_color
     190,                            -- fruit_family
     180,                            -- fruit_ripeness
-    210,                            -- fruit_subcondition
+    200,                            -- fruit_subcondition
     80,                             -- floral
     20,                             -- herbaceous
     180,                            -- herbal
@@ -127,8 +127,8 @@ VALUES (
     'Borgogne',
     'Pinot Noir',
     2020,
-    'Test Producer 2',
-    'Test Bottling 2',
+    'None',
+    'None',
     'Clear',
     128,
     0,
@@ -145,9 +145,9 @@ VALUES (
     90,
     130,
     125,
-    100,
+    80,
     105,
-    20,
+    60,
     30,
     0,
     30,
@@ -186,7 +186,7 @@ VALUES (
     50,
     100,
     90,
-    110,
+    50,
     100,
     70,
     80,
@@ -225,7 +225,7 @@ VALUES (
     185,
     180,
     155,
-    90,
+    100,
     110,
     90,
     130,
@@ -303,7 +303,7 @@ VALUES (
 75,
 25,
 130,
-60,
+75,
 80,
 60,
 30,
@@ -342,7 +342,7 @@ VALUES (
 75,
 180,
 145,
-60,
+90,
 110,
 20,
 70,
@@ -381,7 +381,7 @@ VALUES (
 75,
 160,
 125,
-70,
+125,
 120,
 20,
 50,
@@ -420,7 +420,7 @@ VALUES (
 95,
 195,
 150,
-155,
+100,
 205,
 0,
 0,
@@ -459,7 +459,7 @@ VALUES (
 75,
 25,
 115,
-60,
+90,
 50,
 50,
 0,
@@ -498,7 +498,7 @@ VALUES (
 30,
 125,
 110,
-85,
+55,
 80,
 220,
 40,
@@ -535,9 +535,9 @@ VALUES (
 115,
 140,
 155,
-160,
+205,
 140,
-50,
+110,
 50,
 80,
 105,
@@ -574,9 +574,9 @@ VALUES (
 90,
 175,
 130,
-125,
+175,
 140,
-40,
+90,
 90,
 30,
 90,
@@ -613,9 +613,9 @@ VALUES (
 135,
 180,
 240,
-120,
+185,
 145,
-40,
+105,
 115,
 55,
 100,
@@ -654,7 +654,7 @@ VALUES (
 50,
 120,
 125,
-70,
+75,
 80,
 180,
 140,
@@ -691,7 +691,7 @@ VALUES (
 145,
 215,
 115,
-215,
+210,
 180,
 195,
 110,
@@ -703,4 +703,82 @@ VALUES (
 100,
 60,
 'Leather'
+),  (
+    0,
+'Table',
+'Red',
+'Italy',
+'Piedmont',
+'Barolo',
+'Nebbiolo',
+2018,
+'None',
+'None',
+'Clear',
+0,
+0,
+0,
+'None',
+'Sound',
+215,
+105,
+0,
+2,
+195,
+144,
+170,
+215,
+180,
+75,
+85,
+120,
+120,
+150,
+50,
+220,
+160,
+100,
+130,
+85,
+150,
+'Tar,Potpourri'
+),  (
+    0,    -- scope
+'Table',    -- style
+'Red',    -- label_color
+'Italy',    -- country
+'Veneto',    -- region
+'Amarone Della Valpolicella',    -- appellation
+'Corvina,Corvinone,Rondinella',    -- grapes
+2016,    -- vintage
+'None',    -- producer
+'None',    -- bottling
+'Clear',    -- clarity
+0,    -- appearance_red
+0,    -- appearance_green
+0,    -- appearance_blue
+'None',    -- appearance_other
+'Sound',    -- condition
+230,    -- nose_intensity
+160,    -- development
+0,    -- petillance
+10,    -- sweetness
+165,    -- acidity
+164,    -- alcohol
+255,    -- body
+55,    -- tannin_or_bitterness
+240,    -- finish
+100,    -- fruit_color
+180,    -- fruit_family
+200,    -- fruit_condition
+155,    -- fruit_subcondition
+115,    -- floral
+60,    -- herbaceous
+195,    -- herbal
+195,    -- earth_organic
+30,    -- earth_inorganic
+175,    -- grape_spice
+195,    -- oak_aroma
+155,    -- oak_intensity
+'Potpourri,Balsamic Vinegar'    -- aroma_other
 );

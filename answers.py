@@ -53,8 +53,8 @@ class Answers:
             return False
 
     def check_country(self, wine):
-        if dist(self.country.lower(), wine.country.lower()) <= 1:
-            self.update_attribute("country", wine.country)
+        if self.check_aliases(self.country, wine.country):
+            self.update_attribute("country", wine.get_primary_country())
             return True
         else:
             self.world_result = self.check_world(wine)
@@ -73,15 +73,15 @@ class Answers:
         return False
 
     def check_region(self, wine):
-        if dist(self.region.lower(), wine.region.lower()) <= 1:
-            self.update_attribute("region", wine.region)
+        if self.check_aliases(self.region, wine.region):
+            self.update_attribute("region", wine.get_primary_region())
             return True
         else:
             return False
 
     def check_appellation(self, wine):
-        if dist(self.appellation.lower(), wine.appellation.lower()) <= 1:
-            self.update_attribute("appellation", wine.appellation)
+        if self.check_aliases(self.appellation, wine.appellation):
+            self.update_attribute("appellation", wine.get_primary_appellation())
             return True
         else:
             return False
@@ -91,6 +91,14 @@ class Answers:
             return True
         else:
             return False
+    
+    # checks whether the input string is in the list of accepted answers
+    def check_aliases(self, input_string, comma_separated_string):
+        check = comma_separated_string.split(",")
+        for item in check:
+            if dist(input_string.lower(), item.lower()) <= 1:
+                return True
+        return False
         
     def get_results_list(self):
         results_list = []
@@ -109,17 +117,17 @@ class Answers:
             formatted_output.append(f"in")
         formatted_output.append(f"correct.\n")
         
-        formatted_output.append(f"The country is {wine_obj.country}, you are ")
+        formatted_output.append(f"The country is {wine_obj.get_primary_country()}, you are ")
         if not self.country_result:
             formatted_output.append(f"in")
         formatted_output.append(f"correct.\n")
         
-        formatted_output.append(f"The region is {wine_obj.region}, you are ")
+        formatted_output.append(f"The region is {wine_obj.get_primary_region()}, you are ")
         if not self.region_result:
             formatted_output.append(f"in")
         formatted_output.append(f"correct.\n")
 
-        formatted_output.append(f"The appellation is {wine_obj.appellation}, you are ")
+        formatted_output.append(f"The appellation is {wine_obj.get_primary_appellation()}, you are ")
         if not self.appellation_result:
             formatted_output.append(f"in")
         formatted_output.append(f"correct.\n")

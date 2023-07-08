@@ -239,8 +239,8 @@ VALUES (
     3,                              -- scope
     'Table',                        -- style
     'White',                        -- color
-    'Greece',                          -- country
-    'Test Region',                   -- region
+    'Greece,gr33c3',                          -- country
+    'Test Region,asdf,zxcv',                   -- region
     'Test App',                  -- appellation
     'Test Grape',        -- grapes
     2019,                           -- vintage

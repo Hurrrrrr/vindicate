@@ -248,12 +248,16 @@ class Wine:
     def get_aroma_other(self):
         return self.aroma_other
     
+    # repeating myself for encapsulation
+    def get_primary_country(self):
+        return self.country.split(",")[0]
+
     def get_primary_grape(self):
         return self.grapes.split(",")[0]
+
+    def get_primary_region(self):
+        return self.region.split(",")[0]
     
-
-
- 
-
-        
+    def get_primary_appellation(self):
+        return self.appellation.split(",")[0]
 

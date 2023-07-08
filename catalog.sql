@@ -242,7 +242,7 @@ VALUES (
     'Greece,gr33c3',                          -- country
     'Test Region,asdf,zxcv',                   -- region
     'Test App',                  -- appellation
-    'Test Grape',        -- grapes
+    'Test Grape,tester,potato',        -- grapes
     2019,                           -- vintage
     'Test Producer',                -- producer
     'Test Bottling',                -- bottling

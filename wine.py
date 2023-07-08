@@ -260,4 +260,11 @@ class Wine:
     
     def get_primary_appellation(self):
         return self.appellation.split(",")[0]
+    
+    def get_secondary_grapes(self):
+        split_grapes = self.grapes.split(",")
+        if len(split_grapes) <= 1:
+            return False
+        else:
+            return split_grapes[1:]
 

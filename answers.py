@@ -13,6 +13,7 @@ class Answers:
         self.vintage = vintage
         
         self.grape_result = False
+        self.grape_secondary_result = False
         self.country_result = False
         self.world_result = False
         self.region_result = False
@@ -26,6 +27,38 @@ class Answers:
         self.vintage_score = 0
         self.total_score = 0
     
+    def get_formatted_results(self, wine_obj):
+        formatted_output = []
+
+        formatted_output.append(f"The primary grape is {wine_obj.get_primary_grape()}, you are ")
+        if not self.grape_result:
+            formatted_output.append(f"in")
+        formatted_output.append(f"correct.\n")
+        
+        formatted_output.append(f"The country is {wine_obj.get_primary_country()}, you are ")
+        if not self.country_result:
+            formatted_output.append(f"in")
+        formatted_output.append(f"correct.\n")
+        
+        formatted_output.append(f"The region is {wine_obj.get_primary_region()}, you are ")
+        if not self.region_result:
+            formatted_output.append(f"in")
+        formatted_output.append(f"correct.\n")
+
+        formatted_output.append(f"The appellation is {wine_obj.get_primary_appellation()}, you are ")
+        if not self.appellation_result:
+            formatted_output.append(f"in")
+        formatted_output.append(f"correct.\n")
+
+        formatted_output.append(f"The vintage is {wine_obj.vintage}, you are ")
+        if not self.vintage_result:
+            formatted_output.append(f"in")
+        formatted_output.append(f"correct.\n")
+    
+        formatted_output.append(f"Your score: {self.total_score} / 100\n")
+    
+        return formatted_output
+
     def check_user_answers(self, wine_obj):
         if self.check_grape(wine_obj):
             self.grape_result = True
@@ -46,11 +79,24 @@ class Answers:
             self.vintage_result = True
 
     def check_grape(self, wine):
-        if dist(self.grape.lower(), wine.get_primary_grape().lower()) <= 1:
+        if self.check_aliases(self.grape, wine.get_primary_grape().lower()):
             self.update_attribute("grape", wine.get_primary_grape())
             return True
         else:
+            if self.check_secondary_grapes(wine):
+                self.grape_secondary_result = True
+        return False
+    
+    def check_secondary_grapes(self, wine):
+        checked_grapes = wine.get_secondary_grapes()
+        if not checked_grapes:
             return False
+        else:
+            for grape in checked_grapes:
+                if self.check_aliases(self.grape, grape):
+                    return True
+        return False
+
 
     def check_country(self, wine):
         if self.check_aliases(self.country, wine.country):
@@ -109,38 +155,6 @@ class Answers:
         results_list.append(self.vintage_result)
         return results_list
     
-    def get_formatted_results(self, wine_obj):
-        formatted_output = []
-
-        formatted_output.append(f"The primary grape is {wine_obj.get_primary_grape()}, you are ")
-        if not self.grape_result:
-            formatted_output.append(f"in")
-        formatted_output.append(f"correct.\n")
-        
-        formatted_output.append(f"The country is {wine_obj.get_primary_country()}, you are ")
-        if not self.country_result:
-            formatted_output.append(f"in")
-        formatted_output.append(f"correct.\n")
-        
-        formatted_output.append(f"The region is {wine_obj.get_primary_region()}, you are ")
-        if not self.region_result:
-            formatted_output.append(f"in")
-        formatted_output.append(f"correct.\n")
-
-        formatted_output.append(f"The appellation is {wine_obj.get_primary_appellation()}, you are ")
-        if not self.appellation_result:
-            formatted_output.append(f"in")
-        formatted_output.append(f"correct.\n")
-
-        formatted_output.append(f"The vintage is {wine_obj.vintage}, you are ")
-        if not self.vintage_result:
-            formatted_output.append(f"in")
-        formatted_output.append(f"correct.\n")
-    
-        formatted_output.append(f"Your score: {self.total_score} / 100\n")
-    
-        return formatted_output
-    
     # this doesn't need to be its own function with the current implementation
     # but I'm encapsulating it for maintainability
     def update_attribute(self, attribute_name, correct_value):
@@ -155,6 +169,8 @@ class Answers:
     def score_grape(self):
         if self.grape_result:
             return 35
+        elif self.grape_secondary_result:
+            return 15
         else:
             return 0
     

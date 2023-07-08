@@ -65,8 +65,8 @@ class TastingNote:
         
         output.append(
             f"and the finish is {self.get_finish()}.\n"
-            f"The wine shows {self.get_fruit_ripeness()}, "
-            f"{self.get_fruit_color()}, {self.get_fruit_family()} fruit"
+            f"The wine shows {self.get_fruit_ripeness()} "
+            f"{self.get_fruit_color()} {self.get_fruit_family()} fruit"
         )
 
         if self.check_for_fruit_subcondition():
@@ -590,8 +590,6 @@ class TastingNote:
     def generate_misc_list(self):
         output_list = []
 
-        if self.check_for_oak():
-            output_list.append(self.get_oak())
         if self.check_for_grape_spice():
             output_list.append(self.get_grape_spice())
         if self.check_for_herbal():
@@ -599,6 +597,8 @@ class TastingNote:
         if self.check_quantity_aroma_other():
             for item in self.generate_aroma_other_list():
                 output_list.append(item)
+        if self.check_for_oak():
+            output_list.append(self.get_oak())
         
         return output_list
     

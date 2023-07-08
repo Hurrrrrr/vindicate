@@ -95,7 +95,6 @@ class Wine:
         ##  display = bar chart
         self.finish = finish
 
-        ##  this is being refactored to be dependent on fruit_family in tastingnote
         ##  white: 0-42 = green, 43-85 = greenish, 86-128 = yellow
         ##  129-171 = yellow-orange, 172-214 = orange, 215-255 = deep orange
         ##  red: 0-42 = orange, 43-85 = red, 86-128 = deep red
@@ -103,7 +102,6 @@ class Wine:
         ##  display = text
         self.fruit_color = fruit_color
 
-        ##  this will now be the source for fruit_color in tastingnote
         ##  0-255; white: 0-27 = tart citrus, 28-55 = tart pome, 56-83 = sweet citrus,
         ##  84-111 = tart stone, 112-139 = tart tropical, 140-167 = sweet pome,
         ##  168-195 = sweet stone, 196-223 = sweet tropical, 224-255 = melon

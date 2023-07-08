@@ -58,7 +58,7 @@ tannin_or_bitterness = input("\nWhat is the tannin/bitterness?\n0-29 = none, 30-
 
 finish = input("\nWhat is the finish?\n0-50 = short, 51-101 = med-, 102-152 = med, 153-203 = med+, 204-255 = long ")
 
-fruit_color = input("\nWhat is the fruit color?\n0-27 = very-green, 28-55 = green, 56-83 = yellow, 84-111 = orange, 112-139 = red, 140-167 = dark-red, 168-195 = purple, 196-223 = black, 224-255 = blue ")
+fruit_color = input("\nWhat is the fruit color?\nwhite: 0-42 = green, 43-85 = greenish, 86-128 = yellow, 129-171 = yellow-orange, 172-214 = orange, 215-255 = deep orange\nred: 0-42 = orange, 43-85 = red, 86-128 = deep red, 129-171 = purple, 172-214 = blue, 215-255 = black ")
 
 fruit_family = input("\nWhat is the fruit family?\nwhite: 0-27 = tart citrus, 28-55 = tart pome, 56-83 = sweet citrus, 84-111 = tart stone, 112-139 = tart tropical, 140-167 = sweet pome, 168-195 = sweet stone, 196-223 = sweet tropical, 224-255 = melon\nred: 0-63 = vegetal, 64-127 = tart berry, 128-191 = sweet stone, 192-255 = rich fleshy ")
 
@@ -80,7 +80,7 @@ grape_spice = input("\nWhat is the grape spice?\n0-139 = none, 140-168: fennel, 
 
 oak_aroma = input("\nWhat is the oak_aroma?\n0-36 = sawdust, 37-73 = sandalwood, 74-110 = baking spice, 111-147 = vanilla, 148-184 = caramel, 185-221 = mocha, 222-255 = coffee ")
 
-get_oak_intensity = input("\nWhat is the oak_intensity?\n0-89 = none, 90-131 = faint, 132-173 = moderate, 174-215 = strong, 216-255 = intense ")
+oak_intensity = input("\nWhat is the oak_intensity?\n0-89 = none, 90-131 = faint, 132-173 = moderate, 174-215 = strong, 216-255 = intense ")
 
 aroma_other = input("\nWhat is the aroma_other?\n")
 

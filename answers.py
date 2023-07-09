@@ -2,7 +2,7 @@ from Levenshtein import distance as dist
 
 class Answers:
 
-    OLD_WORLD = ("france", "italy", "spain", "germany")
+    OLD_WORLD = ("france", "italy", "spain", "germany", "greece")
     NEW_WORLD = ("usa", "australia", "new zealand", "argentina")
 
     def __init__(self, grape, country, region, appellation, vintage):
@@ -20,6 +20,9 @@ class Answers:
         self.appellation_result = False
         self.vintage_result = False
 
+        # this is only used if the user doesn't ID the country correctly
+        self.is_old_world = False
+
         self.grape_score = 0
         self.country_score = 0
         self.region_score = 0
@@ -33,12 +36,21 @@ class Answers:
         formatted_output.append(f"The primary grape is {wine_obj.get_primary_grape()}, you are ")
         if not self.grape_result:
             formatted_output.append(f"in")
-        formatted_output.append(f"correct.\n")
+        formatted_output.append(f"correct")
+        if self.grape_secondary_result:
+            formatted_output.append(f", but you identified a secondary grape")
+        formatted_output.append(f".\n")
         
         formatted_output.append(f"The country is {wine_obj.get_primary_country()}, you are ")
         if not self.country_result:
             formatted_output.append(f"in")
-        formatted_output.append(f"correct.\n")
+        formatted_output.append(f"correct")
+        if self.world_result:
+            formatted_output.append(f", but you correctly identified the wine as ")
+            if self.is_old_world:
+                formatted_output.append(f"old")
+            formatted_output.append(f" world")
+        formatted_output.append(f".\n")
         
         formatted_output.append(f"The region is {wine_obj.get_primary_region()}, you are ")
         if not self.region_result:
@@ -110,8 +122,9 @@ class Answers:
     #   not a difficult fix but not necessary once uinput becomes menu-based
     #   which is coming soon
     def check_world(self, wine):
-        if wine.country.lower() in self.OLD_WORLD:
+        if wine.get_primary_country().lower() in self.OLD_WORLD:
             if self.country in self.OLD_WORLD:
+                self.is_old_world = True
                 return True
         else:
             if self.country in self.NEW_WORLD:

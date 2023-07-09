@@ -4,8 +4,6 @@ from wine import Wine
 from tastingnote import TastingNote
 from answers import Answers
 
-# TODO: partial points for secondary grapes
-
 def get_scope_from_user():
     while True:
         scope = input("Choose scope from 0 (narrow) to 3 (very wide) ")

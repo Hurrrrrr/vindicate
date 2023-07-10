@@ -43,7 +43,7 @@ def get_random_wine(wine_row_objects_list, scope):
         wine_list = []
         for row in wine_row_objects_list:
             row_dict = dict(row)
-            if row_dict['scope'] >= scope:
+            if row_dict['scope'] <= scope:
                 wine_list.append(Wine(**row_dict))
 
         if wine_list:
@@ -72,10 +72,10 @@ def main():
     accuracy = get_accuracy_from_user()
 
     try:
-        with open("catalog.sql", "r") as sql_file:
+        with open("/home/jp/repos/vindicate/catalog.sql", "r") as sql_file:
             sql_script = sql_file.read()
 
-        conn = sqlite3.connect("catalog.db")
+        conn = sqlite3.connect("/home/jp/repos/vindicate/catalog.db")
         # necessary to set this so row_factory will work as desired
         conn.row_factory = sqlite3.Row      
         c = conn.cursor()

@@ -19,6 +19,7 @@ class Answers:
         self.region_result = False
         self.appellation_result = False
         self.vintage_result = False
+        self.vintage_offset = -1
 
         # this is only used if the user doesn't ID the country correctly
         self.is_old_world = False
@@ -65,7 +66,10 @@ class Answers:
         formatted_output.append(f"The vintage is {wine_obj.vintage}, you are ")
         if not self.vintage_result:
             formatted_output.append(f"in")
-        formatted_output.append(f"correct.\n")
+        formatted_output.append(f"correct")
+        if self.vintage_offset > 0:
+            formatted_output.append(f", you were off by {self.vintage_offset}")
+        formatted_output.append(f".\n")
     
         formatted_output.append(f"Your score: {self.total_score} / 100\n")
     
@@ -210,6 +214,7 @@ class Answers:
     def score_vintage(self, wine_obj):
         response = int(self.vintage)
         vintage = wine_obj.vintage
+        self.vintage_offset = abs(response - vintage)
         if response == vintage:
             return 10
         elif response == vintage + 1 or response == vintage - 1:

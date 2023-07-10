@@ -243,7 +243,7 @@ VALUES (
     'Test Region,asdf,zxcv',                   -- region
     'Test App',                  -- appellation
     'Test Grape,tester,potato',        -- grapes
-    2019,                           -- vintage
+    2000,                           -- vintage
     'Test Producer',                -- producer
     'Test Bottling',                -- bottling
     'Clear',                        -- clarity

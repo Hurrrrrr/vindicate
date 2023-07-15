@@ -39,6 +39,9 @@ def get_vintage_from_user():
         
         print("Invalid input. Vintage must be an integer.")        
 
+# this could be optimised to avoid random.choice but I find this more
+# readable and I don't expect there to be more than a hundred wines
+# any time soon
 def get_random_wine(wine_row_objects_list, scope):
         wine_list = []
         for row in wine_row_objects_list:

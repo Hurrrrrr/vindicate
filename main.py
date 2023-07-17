@@ -1,8 +1,12 @@
+# CLI implementation of Vindicate, a wine-tasting practice program
+
+#TODO: see answers.py
+
 import random
 import sqlite3
 from wine import Wine
 from tastingnote import TastingNote
-from answers import Answers
+from answers import UserAnswers
 
 def get_scope_from_user():
     while True:
@@ -66,7 +70,7 @@ def get_user_answers(wine):
     appellation = input("What is the appellation? ")
     vintage = get_vintage_from_user()
 
-    user_answers = Answers(grape, country, region, appellation, vintage)
+    user_answers = UserAnswers(grape, country, region, appellation, vintage)
 
     return user_answers
     

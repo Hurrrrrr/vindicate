@@ -6,7 +6,7 @@ import random
 import sqlite3
 from wine import Wine
 from tastingnote import TastingNote
-from answers import UserAnswers
+from answers import UserAnswers, ResultsLogic
 
 def get_scope_from_user():
     while True:
@@ -43,9 +43,8 @@ def get_vintage_from_user():
         
         print("Invalid input. Vintage must be an integer.")        
 
-# this could be optimised to avoid random.choice but I find this more
-# readable and I don't expect there to be more than a hundred wines
-# any time soon
+# this could be optimised to avoid random.choice but not necessary
+# at this scale
 def get_random_wine(wine_row_objects_list, scope):
         wine_list = []
         for row in wine_row_objects_list:
@@ -100,10 +99,10 @@ def main():
         conn.close()
 
     user_answers = get_user_answers(mystery_wine)
-    user_answers.check_user_answers(mystery_wine)
-    user_answers.update_score(mystery_wine)
-    answers_output = user_answers.get_results_list()
-    print("".join(user_answers.get_formatted_results(mystery_wine)))
+    logic = ResultsLogic(user_answers, mystery_wine)
+    logic.check_user_answers()
+    logic.update_score()
+    print("".join(logic.get_formatted_results()))
 
 if __name__ == "__main__":
     main()

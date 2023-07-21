@@ -14,60 +14,6 @@ class UserAnswers:
         self.appellation = appellation
         self.vintage = vintage
 
-    def get_results_list(self):
-        results_list = []
-        results_list.append(self.grape_result)
-        results_list.append(self.country_result)
-        results_list.append(self.region_result)
-        results_list.append(self.appellation_result)
-        results_list.append(self.vintage_result)
-        return results_list
-    
-    def update_score(self, wine_obj):
-        self.total_score = (
-            self.score_grape() + self.score_country() + self.score_region() +
-            self.score_appellation() + self.score_vintage(wine_obj)
-        )
-    
-    def score_grape(self):
-        if self.grape_result:
-            return 35
-        elif self.grape_secondary_result:
-            return 15
-        else:
-            return 0
-    
-    def score_country(self):
-        if self.country_result:
-            return 25
-        elif self.world_result:
-            return 10
-        else:
-            return 0
-    
-    def score_region(self):
-        if self.region_result:
-            return 20
-        else:
-            return 0
-    
-    def score_appellation(self):
-        if self.appellation_result:
-            return 10
-        else:
-            return 0
-    
-    def score_vintage(self, wine_obj):
-        response = int(self.vintage)
-        vintage = wine_obj.vintage
-        self.vintage_offset = abs(response - vintage)
-        if response == vintage:
-            return 10
-        elif response == vintage + 1 or response == vintage - 1:
-            return 5
-        else:
-            return 0
-
 class ResultsLogic:
 
     OLD_WORLD = ("france", "italy", "spain", "germany", "greece")
@@ -95,6 +41,8 @@ class ResultsLogic:
         self.appellation_score = 0
         self.vintage_score = 0
         self.total_score = 0
+    
+
 
     def check_user_answers(self):
         if self.check_grape():
@@ -102,8 +50,7 @@ class ResultsLogic:
 
         if self.check_country():
             self.country_result = True
-        
-        if self.check_world():
+        elif self.check_world():
             self.world_result = True
         
         if self.check_region():
@@ -122,7 +69,7 @@ class ResultsLogic:
             self.update_attribute("answers.grape", self.wine.get_primary_grape())
             return True
         else:
-            if self.check_secondary_grapes(self.wine):
+            if self.check_secondary_grapes():
                 self.grape_secondary_result = True
         return False
     
@@ -132,7 +79,7 @@ class ResultsLogic:
             return False
         else:
             for grape in checked_grapes:
-                if self.check_aliases(self.grape, grape):
+                if self.check_aliases(self.answers.grape, grape):
                     return True
         return False
 
@@ -142,7 +89,7 @@ class ResultsLogic:
             self.update_attribute("answers.country", self.wine.get_primary_country())
             return True
         else:
-            self.world_result = self.check_world(self.wine)
+            self.world_result = self.check_world()
             return False
     
     #   unlike check_country, this requires perfect user input
@@ -234,8 +181,89 @@ class ResultsLogic:
         formatted_output.append(f"Your score: {self.total_score} / 100\n")
     
         return formatted_output
+    
+    def update_score(self):
+        self.total_score = (
+            self.score_grape() + self.score_country() + self.score_region() +
+            self.score_appellation() + self.score_vintage()
+        )
+    
+    def score_grape(self):
+        if self.grape_result:
+            return 35
+        elif self.grape_secondary_result:
+            return 15
+        else:
+            return 0
+    
+    def score_country(self):
+        if self.country_result:
+            return 25
+        elif self.world_result:
+            return 10
+        else:
+            return 0
+    
+    def score_region(self):
+        if self.region_result:
+            return 20
+        else:
+            return 0
+    
+    def score_appellation(self):
+        if self.appellation_result:
+            return 10
+        else:
+            return 0
+    
+    ##
+    def score_vintage(self):
+        response = int(self.answers.vintage)
+        vintage = self.wine.vintage
+        self.vintage_offset = abs(response - vintage)
+        if response == vintage:
+            return 10
+        elif response == vintage + 1 or response == vintage - 1:
+            return 5
+        else:
+            return 0
+    
+    def create_results_list(self):
+        results_list = []
+        results_list.append(self.grape_result)
+        results_list.append(self.country_result)
+        results_list.append(self.region_result)
+        results_list.append(self.appellation_result)
+        results_list.append(self.vintage_result)
+        return results_list
+
+    def create_scores_list(self):
+        output_list = []
+        output_list.append(self.score_grape())
+        output_list.append(self.score_country())
+        output_list.append(self.score_region())
+        output_list.append(self.score_appellation())
+        output_list.append(self.score_vintage())
+        return output_list
+
+    def create_results_obj(self, list_of_answer_result_bools, list_of_scores):
+        return UserResults(*(list_of_answer_result_bools + list_of_scores))
         
+# stores user answer results and their scores for DB
 class UserResults:
 
-    def __init__(self, results_obj):
-        self.result
+    def __init__(self, grape, country, region, appellation, vintage,
+    grape_score, country_score, region_score, appellation_score,
+    vintage_score):
+
+        self.grape = grape
+        self.country = country
+        self.region = region
+        self.appellation = appellation
+        self.vintage = vintage
+
+        self.grape_score = grape_score
+        self.country_score = country_score
+        self.region_score = region_score,
+        self.appellation_score = appellation_score
+        self.vintage_score = vintage_score

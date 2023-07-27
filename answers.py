@@ -1,10 +1,5 @@
 from Levenshtein import distance as dist
 
-# TODO: This needs to become three classes:
-# UserAnswers: Stores answers
-# AnswersLogic: Computes results from UserAnswers and Wine object
-# UserResults: Stores results
-
 class UserAnswers:
 
     def __init__(self, grape, country, region, appellation, vintage):
@@ -14,6 +9,8 @@ class UserAnswers:
         self.appellation = appellation
         self.vintage = vintage
 
+# this could be a static class (or helper functions) but this is more
+# flexible for future uses
 class ResultsLogic:
 
     OLD_WORLD = ("france", "italy", "spain", "germany", "greece")
@@ -216,7 +213,6 @@ class ResultsLogic:
         else:
             return 0
     
-    ##
     def score_vintage(self):
         response = int(self.answers.vintage)
         vintage = self.wine.vintage

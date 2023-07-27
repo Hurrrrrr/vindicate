@@ -781,4 +781,277 @@ VALUES (
 195,    -- oak_aroma
 155,    -- oak_intensity
 'Potpourri,Balsamic Vinegar'    -- aroma_other
+),  (
+    0,    -- scope
+'Table',    -- style
+'Red',    -- label_color
+'Italy',    -- country
+'Tuscany',    -- region
+'Brunello Di Montalcino Riserva',    -- appellation
+'Sangiovese',    -- grapes
+2016,    -- vintage
+'None',    -- producer
+'None',    -- bottling
+'Clear',    -- clarity
+0,    -- appearance_red
+0,    -- appearance_green
+0,    -- appearance_blue
+'None',    -- appearance_other
+'Sound',    -- condition
+180,    -- nose_intensity
+150,    -- development
+0,    -- petillance
+2,    -- sweetness
+165,    -- acidity
+144,    -- alcohol
+210,    -- body
+155,    -- tannin_or_bitterness
+195,    -- finish
+65,    -- fruit_color
+130,    -- fruit_family
+145,    -- fruit_condition
+125,    -- fruit_subcondition
+60,    -- floral
+30,    -- herbaceous
+140,    -- herbal
+185,    -- earth_organic
+70,    -- earth_inorganic
+140,    -- grape_spice
+50,    -- oak_aroma
+70,    -- oak_intensity
+'Leather,Sun-Dried Tomato'    -- aroma_other
+),  (
+    0,    -- scope
+'Table',    -- style
+'Red',    -- label_color
+'Spain',    -- country
+'La Rioja',    -- region
+'Rioja Gran Reserva',    -- appellation
+'Tempranillo-Based Blend',    -- grapes
+2011,    -- vintage
+'None',    -- producer
+'None',    -- bottling
+'Clear',    -- clarity
+0,    -- appearance_red
+0,    -- appearance_green
+0,    -- appearance_blue
+'None',    -- appearance_other
+'Sound',    -- condition
+215,    -- nose_intensity
+175,    -- development
+0,    -- petillance
+2,    -- sweetness
+160,    -- acidity
+142,    -- alcohol
+170,    -- body
+140,    -- tannin_or_bitterness
+195,    -- finish
+55,    -- fruit_color
+120,    -- fruit_family
+145,    -- fruit_condition
+155,    -- fruit_subcondition
+60,    -- floral
+60,    -- herbaceous
+100,    -- herbal
+180,    -- earth_organic
+65,    -- earth_inorganic
+110,    -- grape_spice
+55,    -- oak_aroma
+200,    -- oak_intensity
+'Dill,Coconut'    -- aroma_other
+),  (
+    0,    -- scope
+'Table',    -- style
+'Red',    -- label_color
+'Usa',    -- country
+'California',    -- region
+'Russian River Valley',    -- appellation
+'Pinot Noir',    -- grapes
+2020,    -- vintage
+'None',    -- producer
+'None',    -- bottling
+'Clear',    -- clarity
+0,    -- appearance_red
+0,    -- appearance_green
+0,    -- appearance_blue
+'None',    -- appearance_other
+'Sound',    -- condition
+215,    -- nose_intensity
+75,    -- development
+0,    -- petillance
+5,    -- sweetness
+160,    -- acidity
+148,    -- alcohol
+200,    -- body
+65,    -- tannin_or_bitterness
+200,    -- finish
+110,    -- fruit_color
+80,    -- fruit_family
+185,    -- fruit_condition
+120,    -- fruit_subcondition
+55,    -- floral
+40,    -- herbaceous
+80,    -- herbal
+70,    -- earth_organic
+50,    -- earth_inorganic
+90,    -- grape_spice
+165,    -- oak_aroma
+195,    -- oak_intensity
+'Cola'    -- aroma_other
+),  (
+    0,    -- scope
+'Table',    -- style
+'Red',    -- label_color
+'Usa',    -- country
+'California',    -- region
+'Napa Valley',    -- appellation
+'Cabernet Sauvignon',    -- grapes
+2019,    -- vintage
+'None',    -- producer
+'None',    -- bottling
+'Opaque',    -- clarity
+0,    -- appearance_red
+0,    -- appearance_green
+0,    -- appearance_blue
+'None',    -- appearance_other
+'Sound',    -- condition
+210,    -- nose_intensity
+70,    -- development
+0,    -- petillance
+4,    -- sweetness
+145,    -- acidity
+154,    -- alcohol
+235,    -- body
+220,    -- tannin_or_bitterness
+225,    -- finish
+230,    -- fruit_color
+230,    -- fruit_family
+190,    -- fruit_condition
+70,    -- fruit_subcondition
+50,    -- floral
+55,    -- herbaceous
+40,    -- herbal
+50,    -- earth_organic
+60,    -- earth_inorganic
+100,    -- grape_spice
+200,    -- oak_aroma
+235,    -- oak_intensity
+'Coconut,Cassis'    -- aroma_other
+),  (
+    0,    -- scope
+'Table',    -- style
+'Red',    -- label_color
+'Argentina',    -- country
+'Cuyo',    -- region
+'Mendoza',    -- appellation
+'Malbec',    -- grapes
+2018,    -- vintage
+'None',    -- producer
+'None',    -- bottling
+'Opaque',    -- clarity
+0,    -- appearance_red
+0,    -- appearance_green
+0,    -- appearance_blue
+'None',    -- appearance_other
+'Sound',    -- condition
+190,    -- nose_intensity
+105,    -- development
+0,    -- petillance
+4,    -- sweetness
+140,    -- acidity
+151,    -- alcohol
+220,    -- body
+185,    -- tannin_or_bitterness
+195,    -- finish
+220,    -- fruit_color
+230,    -- fruit_family
+200,    -- fruit_condition
+110,    -- fruit_subcondition
+115,    -- floral
+0,    -- herbaceous
+40,    -- herbal
+50,    -- earth_organic
+30,    -- earth_inorganic
+185,    -- grape_spice
+190,    -- oak_aroma
+240,    -- oak_intensity
+'None'    -- aroma_other
+),  (
+    0,    -- scope
+'Table',    -- style
+'Red',    -- label_color
+'Australia',    -- country
+'South Australia',    -- region
+'Barossa Valley',    -- appellation
+'Syrah',    -- grapes
+2019,    -- vintage
+'None',    -- producer
+'None',    -- bottling
+'Opaque',    -- clarity
+0,    -- appearance_red
+0,    -- appearance_green
+0,    -- appearance_blue
+'None',    -- appearance_other
+'Sound',    -- condition
+250,    -- nose_intensity
+75,    -- development
+0,    -- petillance
+5,    -- sweetness
+160,    -- acidity
+156,    -- alcohol
+250,    -- body
+75,    -- tannin_or_bitterness
+250,    -- finish
+250,    -- fruit_color
+250,    -- fruit_family
+210,    -- fruit_condition
+230,    -- fruit_subcondition
+115,    -- floral
+0,    -- herbaceous
+0,    -- herbal
+40,    -- earth_organic
+20,    -- earth_inorganic
+230,    -- grape_spice
+205,    -- oak_aroma
+250,    -- oak_intensity
+'Smoked Meat'    -- aroma_other
+),  (
+    0,    -- scope
+'Table',    -- style
+'Red',    -- label_color
+'New Zealand',    -- country
+'South Island',    -- region
+'Central Otago',    -- appellation
+'Pinot Noir',    -- grapes
+2020,    -- vintage
+'None',    -- producer
+'None',    -- bottling
+'Clear',    -- clarity
+0,    -- appearance_red
+0,    -- appearance_green
+0,    -- appearance_blue
+'None',    -- appearance_other
+'Sound',    -- condition
+185,    -- nose_intensity
+70,    -- development
+0,    -- petillance
+4,    -- sweetness
+165,    -- acidity
+140,    -- alcohol
+160,    -- body
+80,    -- tannin_or_bitterness
+190,    -- finish
+110,    -- fruit_color
+230,    -- fruit_family
+140,    -- fruit_condition
+50,    -- fruit_subcondition
+65,    -- floral
+70,    -- herbaceous
+110,    -- herbal
+100,    -- earth_organic
+100,    -- earth_inorganic
+100,    -- grape_spice
+85,    -- oak_aroma
+145,    -- oak_intensity
+'None'    -- aroma_other
 );

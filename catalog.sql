@@ -1600,4 +1600,277 @@ VALUES (
 100,    -- oak_aroma
 70,    -- oak_intensity
 'None'    -- aroma_other
+)   (
+    1,    -- scope
+'Table',    -- style
+'White',    -- label_color
+'France',    -- country
+'Jura',    -- region
+'Arbois',    -- appellation
+'Chardonnay',    -- grapes
+2020,    -- vintage
+'None',    -- producer
+'None',    -- bottling
+'Clear',    -- clarity
+255,    -- appearance_red
+236,    -- appearance_green
+135,    -- appearance_blue
+'None',    -- appearance_other
+'Sound',    -- condition
+165,    -- nose_intensity
+130,    -- development
+0,    -- petillance
+2,    -- sweetness
+160,    -- acidity
+136,    -- alcohol
+150,    -- body
+25,    -- tannin_or_bitterness
+160,    -- finish
+105,    -- fruit_color
+45,    -- fruit_family
+120,    -- fruit_condition
+130,    -- fruit_subcondition
+90,    -- floral
+25,    -- herbaceous
+40,    -- herbal
+185,    -- earth_organic
+185,    -- earth_inorganic
+115,    -- grape_spice
+25,    -- oak_aroma
+110,    -- oak_intensity
+'Almond,Cider,Fenugreek'    -- aroma_other
+)   (
+    1,    -- scope
+'Table',    -- style
+'White',    -- label_color
+'Greece',    -- country
+'Aegean Islands',    -- region
+'Santorini',    -- appellation
+'Assyrtiko',    -- grapes
+2022,    -- vintage
+'None',    -- producer
+'None',    -- bottling
+'Clear',    -- clarity
+255,    -- appearance_red
+255,    -- appearance_green
+115,    -- appearance_blue
+'None',    -- appearance_other
+'Sound',    -- condition
+120,    -- nose_intensity
+20,    -- development
+5,    -- petillance
+2,    -- sweetness
+210,    -- acidity
+144,    -- alcohol
+195,    -- body
+85,    -- tannin_or_bitterness
+180,    -- finish
+105,    -- fruit_color
+15,    -- fruit_family
+130,    -- fruit_condition
+100,    -- fruit_subcondition
+50,    -- floral
+35,    -- herbaceous
+40,    -- herbal
+70,    -- earth_organic
+215,    -- earth_inorganic
+90,    -- grape_spice
+100,    -- oak_aroma
+80,    -- oak_intensity
+'None'    -- aroma_other
+)   (
+    1,    -- scope
+'Table',    -- style
+'White',    -- label_color
+'Spain',    -- country
+'Rioja',    -- region
+'Rioja Alta',    -- appellation
+'Viura',    -- grapes
+2014,    -- vintage
+'None',    -- producer
+'None',    -- bottling
+'Clear',    -- clarity
+255,    -- appearance_red
+236,    -- appearance_green
+153,    -- appearance_blue
+'None',    -- appearance_other
+'Sound',    -- condition
+210,    -- nose_intensity
+200,    -- development
+0,    -- petillance
+2,    -- sweetness
+180,    -- acidity
+133,    -- alcohol
+155,    -- body
+40,    -- tannin_or_bitterness
+220,    -- finish
+105,    -- fruit_color
+70,    -- fruit_family
+95,    -- fruit_condition
+160,    -- fruit_subcondition
+90,    -- floral
+30,    -- herbaceous
+100,    -- herbal
+190,    -- earth_organic
+130,    -- earth_inorganic
+110,    -- grape_spice
+50,    -- oak_aroma
+195,    -- oak_intensity
+'Almond,Coconut,Fenugreek,Dill'    -- aroma_other
+)   (
+    1,    -- scope
+'Table',    -- style
+'White',    -- label_color
+'Portugal',    -- country
+'Vinho Verde',    -- region
+'Vinho Verde',    -- appellation
+'Blend',    -- grapes
+2022,    -- vintage
+'None',    -- producer
+'None',    -- bottling
+'Clear',    -- clarity
+247,    -- appearance_red
+255,    -- appearance_green
+204,    -- appearance_blue
+'None',    -- appearance_other
+'Sound',    -- condition
+75,    -- nose_intensity
+20,    -- development
+25,    -- petillance
+10,    -- sweetness
+210,    -- acidity
+108,    -- alcohol
+40,    -- body
+20,    -- tannin_or_bitterness
+60,    -- finish
+30,    -- fruit_color
+25,    -- fruit_family
+70,    -- fruit_condition
+55,    -- fruit_subcondition
+50,    -- floral
+60,    -- herbaceous
+40,    -- herbal
+30,    -- earth_organic
+95,    -- earth_inorganic
+30,    -- grape_spice
+100,    -- oak_aroma
+0,    -- oak_intensity
+'None'    -- aroma_other
+)   (
+    1,    -- scope
+'Table',    -- style
+'White',    -- label_color
+'South Africa',    -- country
+'Western Cape',    -- region
+'Swartland',    -- appellation
+'Chenin Blanc',    -- grapes
+2021,    -- vintage
+'None',    -- producer
+'None',    -- bottling
+'Clear',    -- clarity
+255,    -- appearance_red
+255,    -- appearance_green
+128,    -- appearance_blue
+'None',    -- appearance_other
+'Sound',    -- condition
+160,    -- nose_intensity
+85,    -- development
+5,    -- petillance
+3,    -- sweetness
+155,    -- acidity
+139,    -- alcohol
+170,    -- body
+20,    -- tannin_or_bitterness
+185,    -- finish
+105,    -- fruit_color
+160,    -- fruit_family
+160,    -- fruit_condition
+90,    -- fruit_subcondition
+105,    -- floral
+20,    -- herbaceous
+70,    -- herbal
+80,    -- earth_organic
+100,    -- earth_inorganic
+70,    -- grape_spice
+130,    -- oak_aroma
+150,    -- oak_intensity
+'Quince'    -- aroma_other
+)   (
+    1,    -- scope
+'Table',    -- style
+'White',    -- label_color
+'Usa',    -- country
+'California',    -- region
+'Napa Valley',    -- appellation
+'Sauvignon Blanc',    -- grapes
+2021,    -- vintage
+'None',    -- producer
+'None',    -- bottling
+'Clear',    -- clarity
+242,    -- appearance_red
+255,    -- appearance_green
+179,    -- appearance_blue
+'None',    -- appearance_other
+'Sound',    -- condition
+170,    -- nose_intensity
+20,    -- development
+10,    -- petillance
+5,    -- sweetness
+145,    -- acidity
+140,    -- alcohol
+175,    -- body
+35,    -- tannin_or_bitterness
+155,    -- finish
+80,    -- fruit_color
+125,    -- fruit_family
+165,    -- fruit_condition
+60,    -- fruit_subcondition
+60,    -- floral
+100,    -- herbaceous
+100,    -- herbal
+55,    -- earth_organic
+75,    -- earth_inorganic
+20,    -- grape_spice
+100,    -- oak_aroma
+0,    -- oak_intensity
+'Guava'    -- aroma_other
+)   (
+    1,    -- scope
+'Table',    -- style
+'White',    -- label_color
+'Australia',    -- country
+'New South Wales',    -- region
+'Hunter Valley',    -- appellation
+'Semillon',    -- grapes
+2022,    -- vintage
+'None',    -- producer
+'None',    -- bottling
+'Clear',    -- clarity
+242,    -- appearance_red
+255,    -- appearance_green
+179,    -- appearance_blue
+'None',    -- appearance_other
+'Sound',    -- condition
+140,    -- nose_intensity
+10,    -- development
+10,    -- petillance
+2,    -- sweetness
+240,    -- acidity
+108,    -- alcohol
+40,    -- body
+10,    -- tannin_or_bitterness
+160,    -- finish
+20,    -- fruit_color
+15,    -- fruit_family
+30,    -- fruit_condition
+45,    -- fruit_subcondition
+75,    -- floral
+60,    -- herbaceous
+20,    -- herbal
+30,    -- earth_organic
+240,    -- earth_inorganic
+20,    -- grape_spice
+165,    -- oak_aroma
+0,    -- oak_intensity
+'Rubber'    -- aroma_other
 );
